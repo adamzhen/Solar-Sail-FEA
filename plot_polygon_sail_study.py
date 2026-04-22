@@ -5,6 +5,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 import math
+import os
 
 max_acceptable_deformation = 0.1  # m; arbitrary threshold for "too much" deformation
 
@@ -12,7 +13,11 @@ max_acceptable_deformation = 0.1  # m; arbitrary threshold for "too much" deform
 # Parse results
 # =====================================================================
 
-results_filepath = 'factorial_results_1.2.txt'
+run_no = 1.1
+
+results_filepath = f'results/factorial_results_{run_no}.txt'
+output_directory = f'results/run_{run_no}'
+os.makedirs(output_directory, exist_ok=True)
 
 def parse_results(filepath=results_filepath):
     with open(filepath, 'r') as fh:
@@ -82,9 +87,9 @@ ax1.set_title('Max Deformation vs Wire Mass\n'
 ax1.legend(title='Polygon sides', fontsize=9)
 ax1.grid(True, which='both', alpha=0.3, linestyle='--')
 fig1.tight_layout()
-fig1.savefig('fig1_deform_vs_mass.png', dpi=150, bbox_inches='tight')
+fig1.savefig(f'{output_directory}/{run_no}_fig1_deform_vs_mass.png', dpi=150, bbox_inches='tight')
 plt.close(fig1)
-print('Saved: fig1_deform_vs_mass.png')
+print('Saved: ' + f'{output_directory}/{run_no}_fig1_deform_vs_mass.png')
 
 # =====================================================================
 # HELPER: build NxD Z-matrix for one altitude and one variable
@@ -154,7 +159,7 @@ make_3d_fig(
     zvar       = 'max_deformation',
     zlabel     = 'Max Deformation (m)',
     cmap_name  = 'viridis_r',
-    out_fname  = 'fig2_3d_deformation.png',
+    out_fname  = f'{output_directory}/{run_no}_fig2_3d_deformation.png',
     suptitle   = 'Max Deformation (m)  —  N × Wire Diameter  ×  Altitude',
 )
 
@@ -162,7 +167,7 @@ make_3d_fig(
     zvar       = 'wire_mass',
     zlabel     = 'Wire Mass (kg)',
     cmap_name  = 'plasma',
-    out_fname  = 'fig3_3d_wiremass.png',
+    out_fname  = f'{output_directory}/{run_no}_fig3_3d_wiremass.png',
     suptitle   = 'Wire Mass (kg)  —  N × Wire Diameter  (mass is altitude-independent)',
 )
 
@@ -173,5 +178,5 @@ make_3d_fig(
 summary_cols = ['N', 'd_wire', 'altitude', 'wire_mass', 'max_deformation']
 summary_df = df[summary_cols].copy()
 summary_df.columns = ['N', 'Wire Diameter (mm)', 'Altitude (km)', 'Wire Mass (kg)', 'Max Deformation (m)']
-summary_df.to_csv('summary_data.csv', index=False)
-print('Saved: summary_data.csv')
+summary_df.to_csv(f'{output_directory}/{run_no}_summary_data.csv', index=False)
+print('Saved: ' + f'{output_directory}/{run_no}_summary_data.csv')
