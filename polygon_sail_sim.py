@@ -26,13 +26,13 @@ session.journalOptions.setValues(replayGeometry=COORDINATE, recoverGeometry=COOR
 
 if 'Viewport: 1' in session.viewports.keys():
     session.viewports['Viewport: 1'].viewportAnnotationOptions.setValues(
-        legendFont='-*-verdana-medium-r-normal-*-*-720-*-*-p-*-*-*')
+        legendFont='-*-verdana-medium-r-normal-*-*-120-*-*-p-*-*-*')
     session.viewports['Viewport: 1'].viewportAnnotationOptions.setValues(
-        titleFont='-*-verdana-medium-r-normal-*-*-480-*-*-p-*-*-*')
+        titleFont='-*-verdana-medium-r-normal-*-*-120-*-*-p-*-*-*')
     session.viewports['Viewport: 1'].viewportAnnotationOptions.setValues(
-        stateFont='-*-verdana-medium-r-normal-*-*-480-*-*-p-*-*-*')
+        stateFont='-*-verdana-medium-r-normal-*-*-120-*-*-p-*-*-*')
     session.viewports['Viewport: 1'].viewportAnnotationOptions.setValues(
-        triadFont='-*-verdana-bold-r-normal-*-*-480-*-*-p-*-*-*')
+        triadFont='-*-verdana-bold-r-normal-*-*-120-*-*-p-*-*-*')
 
 _start_time = time.perf_counter()
 
@@ -47,7 +47,7 @@ run_no = 0.1
 
 # Design parameters
 N         = 8        # number of polygon sides
-A_sail    = 9.0      # sail area, m^2
+A_sail    = 10.0      # sail area, m^2
 R_hub     = 0.03     # hub circumradius (centre to hub vertex), m
 H_hub     = 0.09     # hub extrusion height, m
 d_wire    = 1.5      # SMA wire diameter, mm
@@ -56,7 +56,7 @@ mesh_hub  = 0.02     # hub mesh seed size, m
 mesh_wire = 0.1      # wire mesh seed size, m
 
 # Scenario parameters
-altitude = 300       # altitude, km
+altitude = 350       # altitude, km
 drag_pressure_dict = {
     300: 0.0012580,
     325: 0.0007627,
@@ -101,18 +101,28 @@ for i in range(N):
     hub_verts.append((R_hub * math.cos(theta), R_hub * math.sin(theta)))
 
 # --- Wire geometry ---
-# Wire exits hub at vertex_0 = (-a, b) at angle beta from the horizontal.
-# beta = 360/N degrees (equal angular spacing of N spokes).
-# L_wire: from hub vertex to outer polygon vertex, via law of cosines
-# simplified for the specific geometry (see derivation notes).
-beta_rad   = math.radians(360.0 / N)
-wire_start = hub_verts[0]                             # (-a, b, 0) -- attachment point
-L_wire     = math.sqrt(R_sail**2 - b**2) - a         # wire length, m
-wire_end   = (wire_start[0] + L_wire * math.cos(beta_rad),
-              wire_start[1] + L_wire * math.sin(beta_rad))
+# Wire exits hub at vertex_0 = (-a, b) and runs parallel to the x-axis,
+# in the -x direction (outward from the hub).
+beta_rad   = math.radians(180.0)
+wire_start = hub_verts[0]                             # (-a, b, 0)
+L_wire     = math.sqrt(R_sail**2 - b**2) - a
+wire_end   = (wire_start[0] - L_wire, wire_start[1])  # y unchanged
 wire_mid   = ((wire_start[0] + wire_end[0]) / 2.0,
               (wire_start[1] + wire_end[1]) / 2.0,
               0.0)
+
+# # Wire exits hub at vertex_0 = (-a, b) at angle beta from the horizontal.
+# # beta = 360/N degrees (equal angular spacing of N spokes).
+# # L_wire: from hub vertex to outer polygon vertex, via law of cosines
+# # simplified for the specific geometry (see derivation notes).
+# beta_rad   = math.radians(360.0 / N)
+# wire_start = hub_verts[0]                             # (-a, b, 0) -- attachment point
+# L_wire     = math.sqrt(R_sail**2 - b**2) - a         # wire length, m
+# wire_end   = (wire_start[0] + L_wire * math.cos(beta_rad),
+#               wire_start[1] + L_wire * math.sin(beta_rad))
+# wire_mid   = ((wire_start[0] + wire_end[0]) / 2.0,
+#               (wire_start[1] + wire_end[1]) / 2.0,
+#               0.0)
 
 # --- Distributed load scale factor ---
 # w(s) = w_scale * s,  where s is arc length from wire_start
@@ -283,6 +293,15 @@ model.EncastreBC(
     region         = wire_inst.sets['WireFixed'])
 
 # =====================================================================
+# DEFINE TIP SET
+# =====================================================================
+
+tip_pt = (wire_end[0], wire_end[1], 0.0)
+wire_tip_v = wire_part.vertices.getByBoundingSphere(
+    center=tip_pt, radius=r_wire * 2)
+wire_part.Set(vertices=wire_tip_v, name='WireTip')
+
+# =====================================================================
 # DRAG LOAD: analytically distributed line load w(s) = w_scale * s
 #
 # s = arc length from wire_start = dot((X-wx, Y-wy), (cos_b, sin_b))
@@ -374,6 +393,13 @@ frame     = odb.steps['DragStep'].frames[-1]   # last converged frame
 u_field   = frame.fieldOutputs['U']
 max_disp  = max(v.magnitude for v in u_field.values)
 
+# Tip displacement components
+tip_region = odb.rootAssembly.instances['SMAWIRE-1'].nodeSets['WIRETIP']
+tip_vals   = u_field.getSubset(region=tip_region).values
+U1_tip     = tip_vals[0].data[0]
+U2_tip     = tip_vals[0].data[1]
+U3_tip     = tip_vals[0].data[2]
+
 # Normal stress S11 (axial + bending; dominant for beam in bending)
 # S field has components [S11, S12, S13] at each section point
 s_field   = frame.fieldOutputs['S']
@@ -439,13 +465,16 @@ with open(out_path, 'w') as f:
     )
 
     f.write('\nOutputs\n')
-    f.write('max_deformation (m), max_stress_S11 (Pa), max_strain_E11, '
-            'elapsed_time (s)\n')
-    f.write('{:.6e}, {:.6e}, {:.6e}, {:.3f}\n'.format(
-        max_disp, max_stress, max_strain, _elapsed))
+    f.write('max_deformation (m), U1_tip (m), U2_tip (m), U3_tip (m), '
+            'max_stress_S11 (Pa), max_strain_E11, elapsed_time (s)\n')
+    f.write('{:.6e}, {:.6e}, {:.6e}, {:.6e}, {:.6e}, {:.6e}, {:.3f}\n'.format(
+        max_disp, U1_tip, U2_tip, U3_tip, max_stress, max_strain, _elapsed))
 
 print('Saved: ' + out_path)
 print('Max deformation: {:.4e} m'.format(max_disp))
 print('Max stress S11:  {:.4e} Pa'.format(max_stress))
 print('Max strain E11:  {:.4e}'.format(max_strain))
+print('Tip U1: {:.4e} m'.format(U1_tip))
+print('Tip U2: {:.4e} m'.format(U2_tip))
+print('Tip U3: {:.4e} m'.format(U3_tip))
 print('Total elapsed time: {:.3f} s'.format(_elapsed))

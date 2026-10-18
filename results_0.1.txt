@@ -1,0 +1,7 @@
+Inputs
+N, A_sail (m^2), altitude (km), F_drag (N), r_wire (m), d_wire (mm), R_hub (m), H_hub (m), mesh_hub (m), mesh_wire (m), E_nitinol (Pa), nu_nitinol, rho_nitinol (kg/m^3), R_sail (m), L_wire (m), beta (deg), w_scale (N/m^2)
+8, 10.0, 350, 4.571000e-03, 0.00075, 1.500, 0.03, 0.09, 0.02, 0.1, 4.0000e+10, 0.3, 6450.0, 1.880302, 1.868617, 180.0000, 3.272734e-04
+
+Outputs
+max_deformation (m), U1_tip (m), U2_tip (m), U3_tip (m), max_stress_S11 (Pa), max_strain_E11, elapsed_time (s)
+6.865177e-02, 1.457645e-03, -4.960069e-17, -6.863630e-02, 2.060750e+06, 5.151876e-05, 19.025
