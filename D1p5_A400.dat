@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2025                                  Date 17-Oct-2026   Time 15:44:55
+   Abaqus 2025                                  Date 20-Oct-2026   Time 22:13:06
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
 
@@ -139,13 +139,13 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =     0.20    
-       SYSTEM TIME (SEC)    =      0.0    
+       USER TIME (SEC)      =     0.10    
+       SYSTEM TIME (SEC)    =     0.10    
        TOTAL CPU TIME (SEC) =     0.20    
        WALLCLOCK TIME (SEC) =            0
 1
 
-   Abaqus 2025                                  Date 17-Oct-2026   Time 15:44:59
+   Abaqus 2025                                  Date 20-Oct-2026   Time 22:13:09
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
      analysis d=1.5 alt=400                                                                    STEP    1  INCREMENT    1
@@ -217,7 +217,7 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =     0.80    
+       USER TIME (SEC)      =     0.90    
        SYSTEM TIME (SEC)    =     0.20    
-       TOTAL CPU TIME (SEC) =      1.0    
+       TOTAL CPU TIME (SEC) =      1.1    
        WALLCLOCK TIME (SEC) =            1

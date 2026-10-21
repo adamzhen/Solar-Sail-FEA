@@ -12,241 +12,771 @@ from job import *
 from sketch import *
 from visualization import *
 from connectorBehavior import *
-mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=1.0)
-mdb.models['Model-1'].sketches['__profile__'].Line(point1=(-0.0114805029709527, 
+mdb.Model(name='Mesh_3')
+mdb.models['Mesh_3'].ConstrainedSketch(name='__profile__', sheetSize=1.0)
+mdb.models['Mesh_3'].sketches['__profile__'].Line(point1=(-0.0114805029709527, 
     0.0277163859753386), point2=(0.0114805029709527, 0.0277163859753386))
-mdb.models['Model-1'].sketches['__profile__'].Line(point1=(0.0114805029709527, 
+mdb.models['Mesh_3'].sketches['__profile__'].Line(point1=(0.0114805029709527, 
     0.0277163859753386), point2=(0.0277163859753386, 0.0114805029709527))
-mdb.models['Model-1'].sketches['__profile__'].Line(point1=(0.0277163859753386, 
+mdb.models['Mesh_3'].sketches['__profile__'].Line(point1=(0.0277163859753386, 
     0.0114805029709527), point2=(0.0277163859753386, -0.0114805029709527))
-mdb.models['Model-1'].sketches['__profile__'].Line(point1=(0.0277163859753386, 
+mdb.models['Mesh_3'].sketches['__profile__'].Line(point1=(0.0277163859753386, 
     -0.0114805029709527), point2=(0.0114805029709527, -0.0277163859753386))
-mdb.models['Model-1'].sketches['__profile__'].Line(point1=(0.0114805029709527, 
+mdb.models['Mesh_3'].sketches['__profile__'].Line(point1=(0.0114805029709527, 
     -0.0277163859753386), point2=(-0.0114805029709527, -0.0277163859753386))
-mdb.models['Model-1'].sketches['__profile__'].Line(point1=(-0.0114805029709527, 
+mdb.models['Mesh_3'].sketches['__profile__'].Line(point1=(-0.0114805029709527, 
     -0.0277163859753386), point2=(-0.0277163859753386, -0.0114805029709527))
-mdb.models['Model-1'].sketches['__profile__'].Line(point1=(-0.0277163859753386, 
+mdb.models['Mesh_3'].sketches['__profile__'].Line(point1=(-0.0277163859753386, 
     -0.0114805029709527), point2=(-0.0277163859753386, 0.0114805029709527))
-mdb.models['Model-1'].sketches['__profile__'].Line(point1=(-0.0277163859753386, 
+mdb.models['Mesh_3'].sketches['__profile__'].Line(point1=(-0.0277163859753386, 
     0.0114805029709527), point2=(-0.0114805029709527, 0.0277163859753386))
-mdb.models['Model-1'].Part(dimensionality=THREE_D, name='Hub', type=
+mdb.models['Mesh_3'].Part(dimensionality=THREE_D, name='Hub', type=
     DEFORMABLE_BODY)
-mdb.models['Model-1'].parts['Hub'].BaseSolidExtrude(depth=0.09, sketch=
-    mdb.models['Model-1'].sketches['__profile__'])
-del mdb.models['Model-1'].sketches['__profile__']
-mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=10.0)
-mdb.models['Model-1'].sketches['__profile__'].Line(point1=(-0.0114805029709527, 
+mdb.models['Mesh_3'].parts['Hub'].BaseSolidExtrude(depth=0.09, sketch=
+    mdb.models['Mesh_3'].sketches['__profile__'])
+del mdb.models['Mesh_3'].sketches['__profile__']
+mdb.models['Mesh_3'].ConstrainedSketch(name='__profile__', sheetSize=10.0)
+mdb.models['Mesh_3'].sketches['__profile__'].Line(point1=(-0.0114805029709527, 
     0.0277163859753386), point2=(-1.78359533451059, 0.0277163859753386))
-mdb.models['Model-1'].Part(dimensionality=THREE_D, name='SMAWire', type=
+mdb.models['Mesh_3'].Part(dimensionality=THREE_D, name='SMAWire', type=
     DEFORMABLE_BODY)
-mdb.models['Model-1'].parts['SMAWire'].BaseWire(sketch=
-    mdb.models['Model-1'].sketches['__profile__'])
-del mdb.models['Model-1'].sketches['__profile__']
-mdb.models['Model-1'].Material(name='Nitinol')
-mdb.models['Model-1'].materials['Nitinol'].Density(table=((6450.0, ), ))
-mdb.models['Model-1'].materials['Nitinol'].Elastic(table=((35000000000.0, 0.3), 
+mdb.models['Mesh_3'].parts['SMAWire'].BaseWire(sketch=
+    mdb.models['Mesh_3'].sketches['__profile__'])
+del mdb.models['Mesh_3'].sketches['__profile__']
+mdb.models['Mesh_3'].Material(name='Nitinol')
+mdb.models['Mesh_3'].materials['Nitinol'].Density(table=((6450.0, ), ))
+mdb.models['Mesh_3'].materials['Nitinol'].Elastic(table=((35000000000.0, 0.3), 
     ))
-mdb.models['Model-1'].Material(name='Aluminum')
-mdb.models['Model-1'].materials['Aluminum'].Density(table=((2700.0, ), ))
-mdb.models['Model-1'].materials['Aluminum'].Elastic(table=((69000000000.0, 
+mdb.models['Mesh_3'].Material(name='Aluminum')
+mdb.models['Mesh_3'].materials['Aluminum'].Density(table=((2700.0, ), ))
+mdb.models['Mesh_3'].materials['Aluminum'].Elastic(table=((69000000000.0, 
     0.33), ))
-mdb.models['Model-1'].CircularProfile(name='WireProfile', r=0.0015)
-mdb.models['Model-1'].BeamSection(beamSectionOffset=(0.0, 0.0), 
+mdb.models['Mesh_3'].CircularProfile(name='WireProfile', r=0.00075)
+mdb.models['Mesh_3'].BeamSection(beamSectionOffset=(0.0, 0.0), 
     consistentMassMatrix=False, integration=DURING_ANALYSIS, material='Nitinol'
     , name='WireSection', poissonRatio=0.0, profile='WireProfile', 
     temperatureVar=LINEAR)
-mdb.models['Model-1'].HomogeneousSolidSection(material='Aluminum', name=
+mdb.models['Mesh_3'].HomogeneousSolidSection(material='Aluminum', name=
     'HubSection', thickness=None)
-mdb.models['Model-1'].parts['Hub'].Set(cells=
-    mdb.models['Model-1'].parts['Hub'].cells, name='HubSet')
-mdb.models['Model-1'].parts['Hub'].SectionAssignment(offset=0.0, offsetField=''
-    , offsetType=MIDDLE_SURFACE, region=
-    mdb.models['Model-1'].parts['Hub'].sets['HubSet'], sectionName='HubSection'
-    , thicknessAssignment=FROM_SECTION)
-mdb.models['Model-1'].parts['SMAWire'].Set(edges=
-    mdb.models['Model-1'].parts['SMAWire'].edges.findAt(((-0.897537918740769, 
+mdb.models['Mesh_3'].parts['Hub'].Set(cells=
+    mdb.models['Mesh_3'].parts['Hub'].cells, name='HubSet')
+mdb.models['Mesh_3'].parts['Hub'].SectionAssignment(offset=0.0, offsetField='', 
+    offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Mesh_3'].parts['Hub'].sets['HubSet'], sectionName='HubSection', 
+    thicknessAssignment=FROM_SECTION)
+mdb.models['Mesh_3'].parts['SMAWire'].Set(edges=
+    mdb.models['Mesh_3'].parts['SMAWire'].edges.findAt(((-0.897537918740769, 
     0.0277163859753386, 0.0), )), name='WireSet')
-mdb.models['Model-1'].parts['SMAWire'].SectionAssignment(offset=0.0, 
+mdb.models['Mesh_3'].parts['SMAWire'].SectionAssignment(offset=0.0, 
     offsetField='', offsetType=MIDDLE_SURFACE, region=
-    mdb.models['Model-1'].parts['SMAWire'].sets['WireSet'], sectionName=
+    mdb.models['Mesh_3'].parts['SMAWire'].sets['WireSet'], sectionName=
     'WireSection', thicknessAssignment=FROM_SECTION)
-mdb.models['Model-1'].parts['SMAWire'].assignBeamSectionOrientation(method=
+mdb.models['Mesh_3'].parts['SMAWire'].assignBeamSectionOrientation(method=
     N1_COSINES, n1=(0.0, 0.0, 1.0), region=
-    mdb.models['Model-1'].parts['SMAWire'].sets['WireSet'])
-mdb.models['Model-1'].parts['SMAWire'].Set(name='WireFixed', vertices=
-    mdb.models['Model-1'].parts['SMAWire'].vertices.findAt(((-0.011481, 
+    mdb.models['Mesh_3'].parts['SMAWire'].sets['WireSet'])
+mdb.models['Mesh_3'].parts['SMAWire'].Set(name='WireFixed', vertices=
+    mdb.models['Mesh_3'].parts['SMAWire'].vertices.findAt(((-0.011481, 
     0.027716, 0.0), ), ))
-mdb.models['Model-1'].parts['Hub'].seedPart(deviationFactor=0.1, minSizeFactor=
+mdb.models['Mesh_3'].parts['Hub'].seedPart(deviationFactor=0.1, minSizeFactor=
     0.1, size=0.02)
-mdb.models['Model-1'].parts['Hub'].setMeshControls(elemShape=TET, regions=
-    mdb.models['Model-1'].parts['Hub'].cells, technique=FREE)
-mdb.models['Model-1'].parts['Hub'].setElementType(elemTypes=(ElemType(
+mdb.models['Mesh_3'].parts['Hub'].setMeshControls(elemShape=TET, regions=
+    mdb.models['Mesh_3'].parts['Hub'].cells, technique=FREE)
+mdb.models['Mesh_3'].parts['Hub'].setElementType(elemTypes=(ElemType(
     elemCode=C3D10, elemLibrary=STANDARD), ElemType(elemCode=C3D6, 
     elemLibrary=STANDARD), ElemType(elemCode=C3D4, elemLibrary=STANDARD)), 
-    regions=(mdb.models['Model-1'].parts['Hub'].cells, ))
-mdb.models['Model-1'].parts['Hub'].generateMesh()
-mdb.models['Model-1'].parts['SMAWire'].seedPart(deviationFactor=0.1, 
-    minSizeFactor=0.1, size=0.1)
-mdb.models['Model-1'].parts['SMAWire'].setElementType(elemTypes=(ElemType(
+    regions=(mdb.models['Mesh_3'].parts['Hub'].cells, ))
+mdb.models['Mesh_3'].parts['Hub'].generateMesh()
+mdb.models['Mesh_3'].parts['SMAWire'].seedEdgeByNumber(constraint=FIXED, edges=
+    mdb.models['Mesh_3'].parts['SMAWire'].edges, number=3)
+mdb.models['Mesh_3'].parts['SMAWire'].setElementType(elemTypes=(ElemType(
     elemCode=B31H, elemLibrary=STANDARD), ), regions=(
-    mdb.models['Model-1'].parts['SMAWire'].edges, ))
-mdb.models['Model-1'].parts['SMAWire'].generateMesh()
-mdb.models['Model-1'].rootAssembly.DatumCsysByDefault(CARTESIAN)
-mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='Hub-1', part=
-    mdb.models['Model-1'].parts['Hub'])
-mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='SMAWire-1', 
-    part=mdb.models['Model-1'].parts['SMAWire'])
-mdb.models['Model-1'].StaticStep(description='Static drag load on wire', 
+    mdb.models['Mesh_3'].parts['SMAWire'].edges, ))
+mdb.models['Mesh_3'].parts['SMAWire'].generateMesh()
+mdb.models['Mesh_3'].rootAssembly.DatumCsysByDefault(CARTESIAN)
+mdb.models['Mesh_3'].rootAssembly.Instance(dependent=ON, name='Hub-1', part=
+    mdb.models['Mesh_3'].parts['Hub'])
+mdb.models['Mesh_3'].rootAssembly.Instance(dependent=ON, name='SMAWire-1', 
+    part=mdb.models['Mesh_3'].parts['SMAWire'])
+mdb.models['Mesh_3'].StaticStep(description='Static drag load on wire', 
     initialInc=0.001, maxInc=0.05, maxNumInc=1000, minInc=1e-08, name=
-    'Step-400', nlgeom=ON, previous='Initial')
-mdb.models['Model-1'].steps['Step-400'].Restart(frequency=1, numberIntervals=0, 
-    overlay=ON)
-mdb.models['Model-1'].EncastreBC(createStepName='Step-400', name='WireFixed', 
+    'DragStep', nlgeom=ON, previous='Initial')
+mdb.models['Mesh_3'].EncastreBC(createStepName='DragStep', name='WireFixed', 
     region=
-    mdb.models['Model-1'].rootAssembly.instances['SMAWire-1'].sets['WireFixed'])
-mdb.models['Model-1'].ExpressionField(description=
+    mdb.models['Mesh_3'].rootAssembly.instances['SMAWire-1'].sets['WireFixed'])
+mdb.models['Mesh_3'].ExpressionField(description=
     'Arc length s along wire from hub attachment point', expression=
     '(-0.01148050 + X * -1.00000000 + Y * 0.00000000)', localCsys=None, name=
     'DragField')
-mdb.models['Model-1'].rootAssembly.Set(edges=
-    mdb.models['Model-1'].rootAssembly.instances['SMAWire-1'].edges.findAt(((
+mdb.models['Mesh_3'].rootAssembly.Set(edges=
+    mdb.models['Mesh_3'].rootAssembly.instances['SMAWire-1'].edges.findAt(((
     -0.454509, 0.027716, 0.0), ), ), name='WireEdges')
-mdb.models['Model-1'].LineLoad(comp3=-0.000129907574989768, createStepName=
-    'Step-400', distributionType=FIELD, field='DragField', name='DragLoad', 
-    region=mdb.models['Model-1'].rootAssembly.sets['WireEdges'])
-mdb.Job(atTime=None, contactPrint=OFF, description='analysis d=3 alt=400', 
+mdb.models['Mesh_3'].LineLoad(comp3=-0.00648033497199178, createStepName=
+    'DragStep', distributionType=FIELD, field='DragField', name='DragLoad', 
+    region=mdb.models['Mesh_3'].rootAssembly.sets['WireEdges'])
+mdb.Job(atTime=None, contactPrint=OFF, description='Mesh convergence n=3', 
     echoPrint=OFF, explicitPrecision=SINGLE, getMemoryFromAnalysis=True, 
-    historyPrint=OFF, memory=90, memoryUnits=PERCENTAGE, model='Model-1', 
-    modelPrint=OFF, name='D3_A400', nodalOutputPrecision=SINGLE, numCpus=1, 
-    numGPUs=0, queue=None, resultsFormat=ODB, scratch='', type=ANALYSIS, 
-    userSubroutine='', waitMinutes=0)
-mdb.jobs['D3_A400'].submit(consistencyChecking=OFF)
-mdb.jobs['D3_A400'].waitForCompletion()
-mdb.models['Model-1'].setValues(restartJob='D3_A400', restartStep='Step-400')
-mdb.models['Model-1'].StaticStep(description='Static drag load on wire', 
+    historyPrint=OFF, memory=90, memoryUnits=PERCENTAGE, model='Mesh_3', 
+    modelPrint=OFF, name='MeshConv_d1p5_A200_n3', nodalOutputPrecision=SINGLE, 
+    numCpus=1, numGPUs=0, queue=None, resultsFormat=ODB, scratch='', type=
+    ANALYSIS, userSubroutine='', waitMinutes=0)
+mdb.jobs['MeshConv_d1p5_A200_n3'].submit(consistencyChecking=OFF)
+mdb.jobs['MeshConv_d1p5_A200_n3'].waitForCompletion()
+mdb.Model(name='Mesh_6')
+mdb.models['Mesh_6'].ConstrainedSketch(name='__profile__', sheetSize=1.0)
+mdb.models['Mesh_6'].sketches['__profile__'].Line(point1=(-0.0114805029709527, 
+    0.0277163859753386), point2=(0.0114805029709527, 0.0277163859753386))
+mdb.models['Mesh_6'].sketches['__profile__'].Line(point1=(0.0114805029709527, 
+    0.0277163859753386), point2=(0.0277163859753386, 0.0114805029709527))
+mdb.models['Mesh_6'].sketches['__profile__'].Line(point1=(0.0277163859753386, 
+    0.0114805029709527), point2=(0.0277163859753386, -0.0114805029709527))
+mdb.models['Mesh_6'].sketches['__profile__'].Line(point1=(0.0277163859753386, 
+    -0.0114805029709527), point2=(0.0114805029709527, -0.0277163859753386))
+mdb.models['Mesh_6'].sketches['__profile__'].Line(point1=(0.0114805029709527, 
+    -0.0277163859753386), point2=(-0.0114805029709527, -0.0277163859753386))
+mdb.models['Mesh_6'].sketches['__profile__'].Line(point1=(-0.0114805029709527, 
+    -0.0277163859753386), point2=(-0.0277163859753386, -0.0114805029709527))
+mdb.models['Mesh_6'].sketches['__profile__'].Line(point1=(-0.0277163859753386, 
+    -0.0114805029709527), point2=(-0.0277163859753386, 0.0114805029709527))
+mdb.models['Mesh_6'].sketches['__profile__'].Line(point1=(-0.0277163859753386, 
+    0.0114805029709527), point2=(-0.0114805029709527, 0.0277163859753386))
+mdb.models['Mesh_6'].Part(dimensionality=THREE_D, name='Hub', type=
+    DEFORMABLE_BODY)
+mdb.models['Mesh_6'].parts['Hub'].BaseSolidExtrude(depth=0.09, sketch=
+    mdb.models['Mesh_6'].sketches['__profile__'])
+del mdb.models['Mesh_6'].sketches['__profile__']
+mdb.models['Mesh_6'].ConstrainedSketch(name='__profile__', sheetSize=10.0)
+mdb.models['Mesh_6'].sketches['__profile__'].Line(point1=(-0.0114805029709527, 
+    0.0277163859753386), point2=(-1.78359533451059, 0.0277163859753386))
+mdb.models['Mesh_6'].Part(dimensionality=THREE_D, name='SMAWire', type=
+    DEFORMABLE_BODY)
+mdb.models['Mesh_6'].parts['SMAWire'].BaseWire(sketch=
+    mdb.models['Mesh_6'].sketches['__profile__'])
+del mdb.models['Mesh_6'].sketches['__profile__']
+mdb.models['Mesh_6'].Material(name='Nitinol')
+mdb.models['Mesh_6'].materials['Nitinol'].Density(table=((6450.0, ), ))
+mdb.models['Mesh_6'].materials['Nitinol'].Elastic(table=((35000000000.0, 0.3), 
+    ))
+mdb.models['Mesh_6'].Material(name='Aluminum')
+mdb.models['Mesh_6'].materials['Aluminum'].Density(table=((2700.0, ), ))
+mdb.models['Mesh_6'].materials['Aluminum'].Elastic(table=((69000000000.0, 
+    0.33), ))
+mdb.models['Mesh_6'].CircularProfile(name='WireProfile', r=0.00075)
+mdb.models['Mesh_6'].BeamSection(beamSectionOffset=(0.0, 0.0), 
+    consistentMassMatrix=False, integration=DURING_ANALYSIS, material='Nitinol'
+    , name='WireSection', poissonRatio=0.0, profile='WireProfile', 
+    temperatureVar=LINEAR)
+mdb.models['Mesh_6'].HomogeneousSolidSection(material='Aluminum', name=
+    'HubSection', thickness=None)
+mdb.models['Mesh_6'].parts['Hub'].Set(cells=
+    mdb.models['Mesh_6'].parts['Hub'].cells, name='HubSet')
+mdb.models['Mesh_6'].parts['Hub'].SectionAssignment(offset=0.0, offsetField='', 
+    offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Mesh_6'].parts['Hub'].sets['HubSet'], sectionName='HubSection', 
+    thicknessAssignment=FROM_SECTION)
+mdb.models['Mesh_6'].parts['SMAWire'].Set(edges=
+    mdb.models['Mesh_6'].parts['SMAWire'].edges.findAt(((-0.897537918740769, 
+    0.0277163859753386, 0.0), )), name='WireSet')
+mdb.models['Mesh_6'].parts['SMAWire'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Mesh_6'].parts['SMAWire'].sets['WireSet'], sectionName=
+    'WireSection', thicknessAssignment=FROM_SECTION)
+mdb.models['Mesh_6'].parts['SMAWire'].assignBeamSectionOrientation(method=
+    N1_COSINES, n1=(0.0, 0.0, 1.0), region=
+    mdb.models['Mesh_6'].parts['SMAWire'].sets['WireSet'])
+mdb.models['Mesh_6'].parts['SMAWire'].Set(name='WireFixed', vertices=
+    mdb.models['Mesh_6'].parts['SMAWire'].vertices.findAt(((-0.011481, 
+    0.027716, 0.0), ), ))
+mdb.models['Mesh_6'].parts['Hub'].seedPart(deviationFactor=0.1, minSizeFactor=
+    0.1, size=0.02)
+mdb.models['Mesh_6'].parts['Hub'].setMeshControls(elemShape=TET, regions=
+    mdb.models['Mesh_6'].parts['Hub'].cells, technique=FREE)
+mdb.models['Mesh_6'].parts['Hub'].setElementType(elemTypes=(ElemType(
+    elemCode=C3D10, elemLibrary=STANDARD), ElemType(elemCode=C3D6, 
+    elemLibrary=STANDARD), ElemType(elemCode=C3D4, elemLibrary=STANDARD)), 
+    regions=(mdb.models['Mesh_6'].parts['Hub'].cells, ))
+mdb.models['Mesh_6'].parts['Hub'].generateMesh()
+mdb.models['Mesh_6'].parts['SMAWire'].seedEdgeByNumber(constraint=FIXED, edges=
+    mdb.models['Mesh_6'].parts['SMAWire'].edges, number=6)
+mdb.models['Mesh_6'].parts['SMAWire'].setElementType(elemTypes=(ElemType(
+    elemCode=B31H, elemLibrary=STANDARD), ), regions=(
+    mdb.models['Mesh_6'].parts['SMAWire'].edges, ))
+mdb.models['Mesh_6'].parts['SMAWire'].generateMesh()
+mdb.models['Mesh_6'].rootAssembly.DatumCsysByDefault(CARTESIAN)
+mdb.models['Mesh_6'].rootAssembly.Instance(dependent=ON, name='Hub-1', part=
+    mdb.models['Mesh_6'].parts['Hub'])
+mdb.models['Mesh_6'].rootAssembly.Instance(dependent=ON, name='SMAWire-1', 
+    part=mdb.models['Mesh_6'].parts['SMAWire'])
+mdb.models['Mesh_6'].StaticStep(description='Static drag load on wire', 
     initialInc=0.001, maxInc=0.05, maxNumInc=1000, minInc=1e-08, name=
-    'Step-375', nlgeom=ON, previous='Step-400')
-mdb.models['Model-1'].steps['Step-375'].Restart(frequency=1, numberIntervals=0, 
-    overlay=ON)
-mdb.models['Model-1'].loads['DragLoad'].setValuesInStep(comp3=
-    -0.000224175289560155, stepName='Step-375')
-mdb.Job(atTime=None, contactPrint=OFF, description='restart d=3 alt=375', 
+    'DragStep', nlgeom=ON, previous='Initial')
+mdb.models['Mesh_6'].EncastreBC(createStepName='DragStep', name='WireFixed', 
+    region=
+    mdb.models['Mesh_6'].rootAssembly.instances['SMAWire-1'].sets['WireFixed'])
+mdb.models['Mesh_6'].ExpressionField(description=
+    'Arc length s along wire from hub attachment point', expression=
+    '(-0.01148050 + X * -1.00000000 + Y * 0.00000000)', localCsys=None, name=
+    'DragField')
+mdb.models['Mesh_6'].rootAssembly.Set(edges=
+    mdb.models['Mesh_6'].rootAssembly.instances['SMAWire-1'].edges.findAt(((
+    -0.454509, 0.027716, 0.0), ), ), name='WireEdges')
+mdb.models['Mesh_6'].LineLoad(comp3=-0.00648033497199178, createStepName=
+    'DragStep', distributionType=FIELD, field='DragField', name='DragLoad', 
+    region=mdb.models['Mesh_6'].rootAssembly.sets['WireEdges'])
+mdb.Job(atTime=None, contactPrint=OFF, description='Mesh convergence n=6', 
     echoPrint=OFF, explicitPrecision=SINGLE, getMemoryFromAnalysis=True, 
-    historyPrint=OFF, memory=90, memoryUnits=PERCENTAGE, model='Model-1', 
-    modelPrint=OFF, name='D3_A375', nodalOutputPrecision=SINGLE, numCpus=1, 
-    numGPUs=0, queue=None, resultsFormat=ODB, scratch='', type=RESTART, 
-    userSubroutine='', waitMinutes=0)
-mdb.jobs['D3_A375'].submit(consistencyChecking=OFF)
-mdb.jobs['D3_A375'].waitForCompletion()
-mdb.models['Model-1'].setValues(restartJob='D3_A375', restartStep='Step-375')
-mdb.models['Model-1'].StaticStep(description='Static drag load on wire', 
+    historyPrint=OFF, memory=90, memoryUnits=PERCENTAGE, model='Mesh_6', 
+    modelPrint=OFF, name='MeshConv_d1p5_A200_n6', nodalOutputPrecision=SINGLE, 
+    numCpus=1, numGPUs=0, queue=None, resultsFormat=ODB, scratch='', type=
+    ANALYSIS, userSubroutine='', waitMinutes=0)
+mdb.jobs['MeshConv_d1p5_A200_n6'].submit(consistencyChecking=OFF)
+mdb.jobs['MeshConv_d1p5_A200_n6'].waitForCompletion()
+mdb.Model(name='Mesh_12')
+mdb.models['Mesh_12'].ConstrainedSketch(name='__profile__', sheetSize=1.0)
+mdb.models['Mesh_12'].sketches['__profile__'].Line(point1=(-0.0114805029709527, 
+    0.0277163859753386), point2=(0.0114805029709527, 0.0277163859753386))
+mdb.models['Mesh_12'].sketches['__profile__'].Line(point1=(0.0114805029709527, 
+    0.0277163859753386), point2=(0.0277163859753386, 0.0114805029709527))
+mdb.models['Mesh_12'].sketches['__profile__'].Line(point1=(0.0277163859753386, 
+    0.0114805029709527), point2=(0.0277163859753386, -0.0114805029709527))
+mdb.models['Mesh_12'].sketches['__profile__'].Line(point1=(0.0277163859753386, 
+    -0.0114805029709527), point2=(0.0114805029709527, -0.0277163859753386))
+mdb.models['Mesh_12'].sketches['__profile__'].Line(point1=(0.0114805029709527, 
+    -0.0277163859753386), point2=(-0.0114805029709527, -0.0277163859753386))
+mdb.models['Mesh_12'].sketches['__profile__'].Line(point1=(-0.0114805029709527, 
+    -0.0277163859753386), point2=(-0.0277163859753386, -0.0114805029709527))
+mdb.models['Mesh_12'].sketches['__profile__'].Line(point1=(-0.0277163859753386, 
+    -0.0114805029709527), point2=(-0.0277163859753386, 0.0114805029709527))
+mdb.models['Mesh_12'].sketches['__profile__'].Line(point1=(-0.0277163859753386, 
+    0.0114805029709527), point2=(-0.0114805029709527, 0.0277163859753386))
+mdb.models['Mesh_12'].Part(dimensionality=THREE_D, name='Hub', type=
+    DEFORMABLE_BODY)
+mdb.models['Mesh_12'].parts['Hub'].BaseSolidExtrude(depth=0.09, sketch=
+    mdb.models['Mesh_12'].sketches['__profile__'])
+del mdb.models['Mesh_12'].sketches['__profile__']
+mdb.models['Mesh_12'].ConstrainedSketch(name='__profile__', sheetSize=10.0)
+mdb.models['Mesh_12'].sketches['__profile__'].Line(point1=(-0.0114805029709527, 
+    0.0277163859753386), point2=(-1.78359533451059, 0.0277163859753386))
+mdb.models['Mesh_12'].Part(dimensionality=THREE_D, name='SMAWire', type=
+    DEFORMABLE_BODY)
+mdb.models['Mesh_12'].parts['SMAWire'].BaseWire(sketch=
+    mdb.models['Mesh_12'].sketches['__profile__'])
+del mdb.models['Mesh_12'].sketches['__profile__']
+mdb.models['Mesh_12'].Material(name='Nitinol')
+mdb.models['Mesh_12'].materials['Nitinol'].Density(table=((6450.0, ), ))
+mdb.models['Mesh_12'].materials['Nitinol'].Elastic(table=((35000000000.0, 0.3), 
+    ))
+mdb.models['Mesh_12'].Material(name='Aluminum')
+mdb.models['Mesh_12'].materials['Aluminum'].Density(table=((2700.0, ), ))
+mdb.models['Mesh_12'].materials['Aluminum'].Elastic(table=((69000000000.0, 
+    0.33), ))
+mdb.models['Mesh_12'].CircularProfile(name='WireProfile', r=0.00075)
+mdb.models['Mesh_12'].BeamSection(beamSectionOffset=(0.0, 0.0), 
+    consistentMassMatrix=False, integration=DURING_ANALYSIS, material='Nitinol'
+    , name='WireSection', poissonRatio=0.0, profile='WireProfile', 
+    temperatureVar=LINEAR)
+mdb.models['Mesh_12'].HomogeneousSolidSection(material='Aluminum', name=
+    'HubSection', thickness=None)
+mdb.models['Mesh_12'].parts['Hub'].Set(cells=
+    mdb.models['Mesh_12'].parts['Hub'].cells, name='HubSet')
+mdb.models['Mesh_12'].parts['Hub'].SectionAssignment(offset=0.0, offsetField=''
+    , offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Mesh_12'].parts['Hub'].sets['HubSet'], sectionName='HubSection'
+    , thicknessAssignment=FROM_SECTION)
+mdb.models['Mesh_12'].parts['SMAWire'].Set(edges=
+    mdb.models['Mesh_12'].parts['SMAWire'].edges.findAt(((-0.897537918740769, 
+    0.0277163859753386, 0.0), )), name='WireSet')
+mdb.models['Mesh_12'].parts['SMAWire'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Mesh_12'].parts['SMAWire'].sets['WireSet'], sectionName=
+    'WireSection', thicknessAssignment=FROM_SECTION)
+mdb.models['Mesh_12'].parts['SMAWire'].assignBeamSectionOrientation(method=
+    N1_COSINES, n1=(0.0, 0.0, 1.0), region=
+    mdb.models['Mesh_12'].parts['SMAWire'].sets['WireSet'])
+mdb.models['Mesh_12'].parts['SMAWire'].Set(name='WireFixed', vertices=
+    mdb.models['Mesh_12'].parts['SMAWire'].vertices.findAt(((-0.011481, 
+    0.027716, 0.0), ), ))
+mdb.models['Mesh_12'].parts['Hub'].seedPart(deviationFactor=0.1, minSizeFactor=
+    0.1, size=0.02)
+mdb.models['Mesh_12'].parts['Hub'].setMeshControls(elemShape=TET, regions=
+    mdb.models['Mesh_12'].parts['Hub'].cells, technique=FREE)
+mdb.models['Mesh_12'].parts['Hub'].setElementType(elemTypes=(ElemType(
+    elemCode=C3D10, elemLibrary=STANDARD), ElemType(elemCode=C3D6, 
+    elemLibrary=STANDARD), ElemType(elemCode=C3D4, elemLibrary=STANDARD)), 
+    regions=(mdb.models['Mesh_12'].parts['Hub'].cells, ))
+mdb.models['Mesh_12'].parts['Hub'].generateMesh()
+mdb.models['Mesh_12'].parts['SMAWire'].seedEdgeByNumber(constraint=FIXED, 
+    edges=mdb.models['Mesh_12'].parts['SMAWire'].edges, number=12)
+mdb.models['Mesh_12'].parts['SMAWire'].setElementType(elemTypes=(ElemType(
+    elemCode=B31H, elemLibrary=STANDARD), ), regions=(
+    mdb.models['Mesh_12'].parts['SMAWire'].edges, ))
+mdb.models['Mesh_12'].parts['SMAWire'].generateMesh()
+mdb.models['Mesh_12'].rootAssembly.DatumCsysByDefault(CARTESIAN)
+mdb.models['Mesh_12'].rootAssembly.Instance(dependent=ON, name='Hub-1', part=
+    mdb.models['Mesh_12'].parts['Hub'])
+mdb.models['Mesh_12'].rootAssembly.Instance(dependent=ON, name='SMAWire-1', 
+    part=mdb.models['Mesh_12'].parts['SMAWire'])
+mdb.models['Mesh_12'].StaticStep(description='Static drag load on wire', 
     initialInc=0.001, maxInc=0.05, maxNumInc=1000, minInc=1e-08, name=
-    'Step-350', nlgeom=ON, previous='Step-375')
-mdb.models['Model-1'].steps['Step-350'].Restart(frequency=1, numberIntervals=0, 
-    overlay=ON)
-mdb.models['Model-1'].loads['DragLoad'].setValuesInStep(comp3=
-    -0.000327509368880806, stepName='Step-350')
-mdb.Job(atTime=None, contactPrint=OFF, description='restart d=3 alt=350', 
+    'DragStep', nlgeom=ON, previous='Initial')
+mdb.models['Mesh_12'].EncastreBC(createStepName='DragStep', name='WireFixed', 
+    region=
+    mdb.models['Mesh_12'].rootAssembly.instances['SMAWire-1'].sets['WireFixed'])
+mdb.models['Mesh_12'].ExpressionField(description=
+    'Arc length s along wire from hub attachment point', expression=
+    '(-0.01148050 + X * -1.00000000 + Y * 0.00000000)', localCsys=None, name=
+    'DragField')
+mdb.models['Mesh_12'].rootAssembly.Set(edges=
+    mdb.models['Mesh_12'].rootAssembly.instances['SMAWire-1'].edges.findAt(((
+    -0.454509, 0.027716, 0.0), ), ), name='WireEdges')
+mdb.models['Mesh_12'].LineLoad(comp3=-0.00648033497199178, createStepName=
+    'DragStep', distributionType=FIELD, field='DragField', name='DragLoad', 
+    region=mdb.models['Mesh_12'].rootAssembly.sets['WireEdges'])
+mdb.Job(atTime=None, contactPrint=OFF, description='Mesh convergence n=12', 
     echoPrint=OFF, explicitPrecision=SINGLE, getMemoryFromAnalysis=True, 
-    historyPrint=OFF, memory=90, memoryUnits=PERCENTAGE, model='Model-1', 
-    modelPrint=OFF, name='D3_A350', nodalOutputPrecision=SINGLE, numCpus=1, 
-    numGPUs=0, queue=None, resultsFormat=ODB, scratch='', type=RESTART, 
-    userSubroutine='', waitMinutes=0)
-mdb.jobs['D3_A350'].submit(consistencyChecking=OFF)
-mdb.jobs['D3_A350'].waitForCompletion()
-mdb.models['Model-1'].setValues(restartJob='D3_A350', restartStep='Step-350')
-mdb.models['Model-1'].StaticStep(description='Static drag load on wire', 
+    historyPrint=OFF, memory=90, memoryUnits=PERCENTAGE, model='Mesh_12', 
+    modelPrint=OFF, name='MeshConv_d1p5_A200_n12', nodalOutputPrecision=SINGLE, 
+    numCpus=1, numGPUs=0, queue=None, resultsFormat=ODB, scratch='', type=
+    ANALYSIS, userSubroutine='', waitMinutes=0)
+mdb.jobs['MeshConv_d1p5_A200_n12'].submit(consistencyChecking=OFF)
+mdb.jobs['MeshConv_d1p5_A200_n12'].waitForCompletion()
+mdb.Model(name='Mesh_24')
+mdb.models['Mesh_24'].ConstrainedSketch(name='__profile__', sheetSize=1.0)
+mdb.models['Mesh_24'].sketches['__profile__'].Line(point1=(-0.0114805029709527, 
+    0.0277163859753386), point2=(0.0114805029709527, 0.0277163859753386))
+mdb.models['Mesh_24'].sketches['__profile__'].Line(point1=(0.0114805029709527, 
+    0.0277163859753386), point2=(0.0277163859753386, 0.0114805029709527))
+mdb.models['Mesh_24'].sketches['__profile__'].Line(point1=(0.0277163859753386, 
+    0.0114805029709527), point2=(0.0277163859753386, -0.0114805029709527))
+mdb.models['Mesh_24'].sketches['__profile__'].Line(point1=(0.0277163859753386, 
+    -0.0114805029709527), point2=(0.0114805029709527, -0.0277163859753386))
+mdb.models['Mesh_24'].sketches['__profile__'].Line(point1=(0.0114805029709527, 
+    -0.0277163859753386), point2=(-0.0114805029709527, -0.0277163859753386))
+mdb.models['Mesh_24'].sketches['__profile__'].Line(point1=(-0.0114805029709527, 
+    -0.0277163859753386), point2=(-0.0277163859753386, -0.0114805029709527))
+mdb.models['Mesh_24'].sketches['__profile__'].Line(point1=(-0.0277163859753386, 
+    -0.0114805029709527), point2=(-0.0277163859753386, 0.0114805029709527))
+mdb.models['Mesh_24'].sketches['__profile__'].Line(point1=(-0.0277163859753386, 
+    0.0114805029709527), point2=(-0.0114805029709527, 0.0277163859753386))
+mdb.models['Mesh_24'].Part(dimensionality=THREE_D, name='Hub', type=
+    DEFORMABLE_BODY)
+mdb.models['Mesh_24'].parts['Hub'].BaseSolidExtrude(depth=0.09, sketch=
+    mdb.models['Mesh_24'].sketches['__profile__'])
+del mdb.models['Mesh_24'].sketches['__profile__']
+mdb.models['Mesh_24'].ConstrainedSketch(name='__profile__', sheetSize=10.0)
+mdb.models['Mesh_24'].sketches['__profile__'].Line(point1=(-0.0114805029709527, 
+    0.0277163859753386), point2=(-1.78359533451059, 0.0277163859753386))
+mdb.models['Mesh_24'].Part(dimensionality=THREE_D, name='SMAWire', type=
+    DEFORMABLE_BODY)
+mdb.models['Mesh_24'].parts['SMAWire'].BaseWire(sketch=
+    mdb.models['Mesh_24'].sketches['__profile__'])
+del mdb.models['Mesh_24'].sketches['__profile__']
+mdb.models['Mesh_24'].Material(name='Nitinol')
+mdb.models['Mesh_24'].materials['Nitinol'].Density(table=((6450.0, ), ))
+mdb.models['Mesh_24'].materials['Nitinol'].Elastic(table=((35000000000.0, 0.3), 
+    ))
+mdb.models['Mesh_24'].Material(name='Aluminum')
+mdb.models['Mesh_24'].materials['Aluminum'].Density(table=((2700.0, ), ))
+mdb.models['Mesh_24'].materials['Aluminum'].Elastic(table=((69000000000.0, 
+    0.33), ))
+mdb.models['Mesh_24'].CircularProfile(name='WireProfile', r=0.00075)
+mdb.models['Mesh_24'].BeamSection(beamSectionOffset=(0.0, 0.0), 
+    consistentMassMatrix=False, integration=DURING_ANALYSIS, material='Nitinol'
+    , name='WireSection', poissonRatio=0.0, profile='WireProfile', 
+    temperatureVar=LINEAR)
+mdb.models['Mesh_24'].HomogeneousSolidSection(material='Aluminum', name=
+    'HubSection', thickness=None)
+mdb.models['Mesh_24'].parts['Hub'].Set(cells=
+    mdb.models['Mesh_24'].parts['Hub'].cells, name='HubSet')
+mdb.models['Mesh_24'].parts['Hub'].SectionAssignment(offset=0.0, offsetField=''
+    , offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Mesh_24'].parts['Hub'].sets['HubSet'], sectionName='HubSection'
+    , thicknessAssignment=FROM_SECTION)
+mdb.models['Mesh_24'].parts['SMAWire'].Set(edges=
+    mdb.models['Mesh_24'].parts['SMAWire'].edges.findAt(((-0.897537918740769, 
+    0.0277163859753386, 0.0), )), name='WireSet')
+mdb.models['Mesh_24'].parts['SMAWire'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Mesh_24'].parts['SMAWire'].sets['WireSet'], sectionName=
+    'WireSection', thicknessAssignment=FROM_SECTION)
+mdb.models['Mesh_24'].parts['SMAWire'].assignBeamSectionOrientation(method=
+    N1_COSINES, n1=(0.0, 0.0, 1.0), region=
+    mdb.models['Mesh_24'].parts['SMAWire'].sets['WireSet'])
+mdb.models['Mesh_24'].parts['SMAWire'].Set(name='WireFixed', vertices=
+    mdb.models['Mesh_24'].parts['SMAWire'].vertices.findAt(((-0.011481, 
+    0.027716, 0.0), ), ))
+mdb.models['Mesh_24'].parts['Hub'].seedPart(deviationFactor=0.1, minSizeFactor=
+    0.1, size=0.02)
+mdb.models['Mesh_24'].parts['Hub'].setMeshControls(elemShape=TET, regions=
+    mdb.models['Mesh_24'].parts['Hub'].cells, technique=FREE)
+mdb.models['Mesh_24'].parts['Hub'].setElementType(elemTypes=(ElemType(
+    elemCode=C3D10, elemLibrary=STANDARD), ElemType(elemCode=C3D6, 
+    elemLibrary=STANDARD), ElemType(elemCode=C3D4, elemLibrary=STANDARD)), 
+    regions=(mdb.models['Mesh_24'].parts['Hub'].cells, ))
+mdb.models['Mesh_24'].parts['Hub'].generateMesh()
+mdb.models['Mesh_24'].parts['SMAWire'].seedEdgeByNumber(constraint=FIXED, 
+    edges=mdb.models['Mesh_24'].parts['SMAWire'].edges, number=24)
+mdb.models['Mesh_24'].parts['SMAWire'].setElementType(elemTypes=(ElemType(
+    elemCode=B31H, elemLibrary=STANDARD), ), regions=(
+    mdb.models['Mesh_24'].parts['SMAWire'].edges, ))
+mdb.models['Mesh_24'].parts['SMAWire'].generateMesh()
+mdb.models['Mesh_24'].rootAssembly.DatumCsysByDefault(CARTESIAN)
+mdb.models['Mesh_24'].rootAssembly.Instance(dependent=ON, name='Hub-1', part=
+    mdb.models['Mesh_24'].parts['Hub'])
+mdb.models['Mesh_24'].rootAssembly.Instance(dependent=ON, name='SMAWire-1', 
+    part=mdb.models['Mesh_24'].parts['SMAWire'])
+mdb.models['Mesh_24'].StaticStep(description='Static drag load on wire', 
     initialInc=0.001, maxInc=0.05, maxNumInc=1000, minInc=1e-08, name=
-    'Step-325', nlgeom=ON, previous='Step-350')
-mdb.models['Model-1'].steps['Step-325'].Restart(frequency=1, numberIntervals=0, 
-    overlay=ON)
-mdb.models['Model-1'].loads['DragLoad'].setValuesInStep(comp3=
-    -0.000546552271170349, stepName='Step-325')
-mdb.Job(atTime=None, contactPrint=OFF, description='restart d=3 alt=325', 
+    'DragStep', nlgeom=ON, previous='Initial')
+mdb.models['Mesh_24'].EncastreBC(createStepName='DragStep', name='WireFixed', 
+    region=
+    mdb.models['Mesh_24'].rootAssembly.instances['SMAWire-1'].sets['WireFixed'])
+mdb.models['Mesh_24'].ExpressionField(description=
+    'Arc length s along wire from hub attachment point', expression=
+    '(-0.01148050 + X * -1.00000000 + Y * 0.00000000)', localCsys=None, name=
+    'DragField')
+mdb.models['Mesh_24'].rootAssembly.Set(edges=
+    mdb.models['Mesh_24'].rootAssembly.instances['SMAWire-1'].edges.findAt(((
+    -0.454509, 0.027716, 0.0), ), ), name='WireEdges')
+mdb.models['Mesh_24'].LineLoad(comp3=-0.00648033497199178, createStepName=
+    'DragStep', distributionType=FIELD, field='DragField', name='DragLoad', 
+    region=mdb.models['Mesh_24'].rootAssembly.sets['WireEdges'])
+mdb.Job(atTime=None, contactPrint=OFF, description='Mesh convergence n=24', 
     echoPrint=OFF, explicitPrecision=SINGLE, getMemoryFromAnalysis=True, 
-    historyPrint=OFF, memory=90, memoryUnits=PERCENTAGE, model='Model-1', 
-    modelPrint=OFF, name='D3_A325', nodalOutputPrecision=SINGLE, numCpus=1, 
-    numGPUs=0, queue=None, resultsFormat=ODB, scratch='', type=RESTART, 
-    userSubroutine='', waitMinutes=0)
-mdb.jobs['D3_A325'].submit(consistencyChecking=OFF)
-mdb.jobs['D3_A325'].waitForCompletion()
-mdb.models['Model-1'].setValues(restartJob='D3_A325', restartStep='Step-325')
-mdb.models['Model-1'].StaticStep(description='Static drag load on wire', 
+    historyPrint=OFF, memory=90, memoryUnits=PERCENTAGE, model='Mesh_24', 
+    modelPrint=OFF, name='MeshConv_d1p5_A200_n24', nodalOutputPrecision=SINGLE, 
+    numCpus=1, numGPUs=0, queue=None, resultsFormat=ODB, scratch='', type=
+    ANALYSIS, userSubroutine='', waitMinutes=0)
+mdb.jobs['MeshConv_d1p5_A200_n24'].submit(consistencyChecking=OFF)
+mdb.jobs['MeshConv_d1p5_A200_n24'].waitForCompletion()
+mdb.Model(name='Mesh_48')
+mdb.models['Mesh_48'].ConstrainedSketch(name='__profile__', sheetSize=1.0)
+mdb.models['Mesh_48'].sketches['__profile__'].Line(point1=(-0.0114805029709527, 
+    0.0277163859753386), point2=(0.0114805029709527, 0.0277163859753386))
+mdb.models['Mesh_48'].sketches['__profile__'].Line(point1=(0.0114805029709527, 
+    0.0277163859753386), point2=(0.0277163859753386, 0.0114805029709527))
+mdb.models['Mesh_48'].sketches['__profile__'].Line(point1=(0.0277163859753386, 
+    0.0114805029709527), point2=(0.0277163859753386, -0.0114805029709527))
+mdb.models['Mesh_48'].sketches['__profile__'].Line(point1=(0.0277163859753386, 
+    -0.0114805029709527), point2=(0.0114805029709527, -0.0277163859753386))
+mdb.models['Mesh_48'].sketches['__profile__'].Line(point1=(0.0114805029709527, 
+    -0.0277163859753386), point2=(-0.0114805029709527, -0.0277163859753386))
+mdb.models['Mesh_48'].sketches['__profile__'].Line(point1=(-0.0114805029709527, 
+    -0.0277163859753386), point2=(-0.0277163859753386, -0.0114805029709527))
+mdb.models['Mesh_48'].sketches['__profile__'].Line(point1=(-0.0277163859753386, 
+    -0.0114805029709527), point2=(-0.0277163859753386, 0.0114805029709527))
+mdb.models['Mesh_48'].sketches['__profile__'].Line(point1=(-0.0277163859753386, 
+    0.0114805029709527), point2=(-0.0114805029709527, 0.0277163859753386))
+mdb.models['Mesh_48'].Part(dimensionality=THREE_D, name='Hub', type=
+    DEFORMABLE_BODY)
+mdb.models['Mesh_48'].parts['Hub'].BaseSolidExtrude(depth=0.09, sketch=
+    mdb.models['Mesh_48'].sketches['__profile__'])
+del mdb.models['Mesh_48'].sketches['__profile__']
+mdb.models['Mesh_48'].ConstrainedSketch(name='__profile__', sheetSize=10.0)
+mdb.models['Mesh_48'].sketches['__profile__'].Line(point1=(-0.0114805029709527, 
+    0.0277163859753386), point2=(-1.78359533451059, 0.0277163859753386))
+mdb.models['Mesh_48'].Part(dimensionality=THREE_D, name='SMAWire', type=
+    DEFORMABLE_BODY)
+mdb.models['Mesh_48'].parts['SMAWire'].BaseWire(sketch=
+    mdb.models['Mesh_48'].sketches['__profile__'])
+del mdb.models['Mesh_48'].sketches['__profile__']
+mdb.models['Mesh_48'].Material(name='Nitinol')
+mdb.models['Mesh_48'].materials['Nitinol'].Density(table=((6450.0, ), ))
+mdb.models['Mesh_48'].materials['Nitinol'].Elastic(table=((35000000000.0, 0.3), 
+    ))
+mdb.models['Mesh_48'].Material(name='Aluminum')
+mdb.models['Mesh_48'].materials['Aluminum'].Density(table=((2700.0, ), ))
+mdb.models['Mesh_48'].materials['Aluminum'].Elastic(table=((69000000000.0, 
+    0.33), ))
+mdb.models['Mesh_48'].CircularProfile(name='WireProfile', r=0.00075)
+mdb.models['Mesh_48'].BeamSection(beamSectionOffset=(0.0, 0.0), 
+    consistentMassMatrix=False, integration=DURING_ANALYSIS, material='Nitinol'
+    , name='WireSection', poissonRatio=0.0, profile='WireProfile', 
+    temperatureVar=LINEAR)
+mdb.models['Mesh_48'].HomogeneousSolidSection(material='Aluminum', name=
+    'HubSection', thickness=None)
+mdb.models['Mesh_48'].parts['Hub'].Set(cells=
+    mdb.models['Mesh_48'].parts['Hub'].cells, name='HubSet')
+mdb.models['Mesh_48'].parts['Hub'].SectionAssignment(offset=0.0, offsetField=''
+    , offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Mesh_48'].parts['Hub'].sets['HubSet'], sectionName='HubSection'
+    , thicknessAssignment=FROM_SECTION)
+mdb.models['Mesh_48'].parts['SMAWire'].Set(edges=
+    mdb.models['Mesh_48'].parts['SMAWire'].edges.findAt(((-0.897537918740769, 
+    0.0277163859753386, 0.0), )), name='WireSet')
+mdb.models['Mesh_48'].parts['SMAWire'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Mesh_48'].parts['SMAWire'].sets['WireSet'], sectionName=
+    'WireSection', thicknessAssignment=FROM_SECTION)
+mdb.models['Mesh_48'].parts['SMAWire'].assignBeamSectionOrientation(method=
+    N1_COSINES, n1=(0.0, 0.0, 1.0), region=
+    mdb.models['Mesh_48'].parts['SMAWire'].sets['WireSet'])
+mdb.models['Mesh_48'].parts['SMAWire'].Set(name='WireFixed', vertices=
+    mdb.models['Mesh_48'].parts['SMAWire'].vertices.findAt(((-0.011481, 
+    0.027716, 0.0), ), ))
+mdb.models['Mesh_48'].parts['Hub'].seedPart(deviationFactor=0.1, minSizeFactor=
+    0.1, size=0.02)
+mdb.models['Mesh_48'].parts['Hub'].setMeshControls(elemShape=TET, regions=
+    mdb.models['Mesh_48'].parts['Hub'].cells, technique=FREE)
+mdb.models['Mesh_48'].parts['Hub'].setElementType(elemTypes=(ElemType(
+    elemCode=C3D10, elemLibrary=STANDARD), ElemType(elemCode=C3D6, 
+    elemLibrary=STANDARD), ElemType(elemCode=C3D4, elemLibrary=STANDARD)), 
+    regions=(mdb.models['Mesh_48'].parts['Hub'].cells, ))
+mdb.models['Mesh_48'].parts['Hub'].generateMesh()
+mdb.models['Mesh_48'].parts['SMAWire'].seedEdgeByNumber(constraint=FIXED, 
+    edges=mdb.models['Mesh_48'].parts['SMAWire'].edges, number=48)
+mdb.models['Mesh_48'].parts['SMAWire'].setElementType(elemTypes=(ElemType(
+    elemCode=B31H, elemLibrary=STANDARD), ), regions=(
+    mdb.models['Mesh_48'].parts['SMAWire'].edges, ))
+mdb.models['Mesh_48'].parts['SMAWire'].generateMesh()
+mdb.models['Mesh_48'].rootAssembly.DatumCsysByDefault(CARTESIAN)
+mdb.models['Mesh_48'].rootAssembly.Instance(dependent=ON, name='Hub-1', part=
+    mdb.models['Mesh_48'].parts['Hub'])
+mdb.models['Mesh_48'].rootAssembly.Instance(dependent=ON, name='SMAWire-1', 
+    part=mdb.models['Mesh_48'].parts['SMAWire'])
+mdb.models['Mesh_48'].StaticStep(description='Static drag load on wire', 
     initialInc=0.001, maxInc=0.05, maxNumInc=1000, minInc=1e-08, name=
-    'Step-300', nlgeom=ON, previous='Step-325')
-mdb.models['Model-1'].steps['Step-300'].Restart(frequency=1, numberIntervals=0, 
-    overlay=ON)
-mdb.models['Model-1'].loads['DragLoad'].setValuesInStep(comp3=
-    -0.000901276252510413, stepName='Step-300')
-mdb.Job(atTime=None, contactPrint=OFF, description='restart d=3 alt=300', 
+    'DragStep', nlgeom=ON, previous='Initial')
+mdb.models['Mesh_48'].EncastreBC(createStepName='DragStep', name='WireFixed', 
+    region=
+    mdb.models['Mesh_48'].rootAssembly.instances['SMAWire-1'].sets['WireFixed'])
+mdb.models['Mesh_48'].ExpressionField(description=
+    'Arc length s along wire from hub attachment point', expression=
+    '(-0.01148050 + X * -1.00000000 + Y * 0.00000000)', localCsys=None, name=
+    'DragField')
+mdb.models['Mesh_48'].rootAssembly.Set(edges=
+    mdb.models['Mesh_48'].rootAssembly.instances['SMAWire-1'].edges.findAt(((
+    -0.454509, 0.027716, 0.0), ), ), name='WireEdges')
+mdb.models['Mesh_48'].LineLoad(comp3=-0.00648033497199178, createStepName=
+    'DragStep', distributionType=FIELD, field='DragField', name='DragLoad', 
+    region=mdb.models['Mesh_48'].rootAssembly.sets['WireEdges'])
+mdb.Job(atTime=None, contactPrint=OFF, description='Mesh convergence n=48', 
     echoPrint=OFF, explicitPrecision=SINGLE, getMemoryFromAnalysis=True, 
-    historyPrint=OFF, memory=90, memoryUnits=PERCENTAGE, model='Model-1', 
-    modelPrint=OFF, name='D3_A300', nodalOutputPrecision=SINGLE, numCpus=1, 
-    numGPUs=0, queue=None, resultsFormat=ODB, scratch='', type=RESTART, 
-    userSubroutine='', waitMinutes=0)
-mdb.jobs['D3_A300'].submit(consistencyChecking=OFF)
-mdb.jobs['D3_A300'].waitForCompletion()
-mdb.models['Model-1'].setValues(restartJob='D3_A300', restartStep='Step-300')
-mdb.models['Model-1'].StaticStep(description='Static drag load on wire', 
+    historyPrint=OFF, memory=90, memoryUnits=PERCENTAGE, model='Mesh_48', 
+    modelPrint=OFF, name='MeshConv_d1p5_A200_n48', nodalOutputPrecision=SINGLE, 
+    numCpus=1, numGPUs=0, queue=None, resultsFormat=ODB, scratch='', type=
+    ANALYSIS, userSubroutine='', waitMinutes=0)
+mdb.jobs['MeshConv_d1p5_A200_n48'].submit(consistencyChecking=OFF)
+mdb.jobs['MeshConv_d1p5_A200_n48'].waitForCompletion()
+mdb.Model(name='Mesh_96')
+mdb.models['Mesh_96'].ConstrainedSketch(name='__profile__', sheetSize=1.0)
+mdb.models['Mesh_96'].sketches['__profile__'].Line(point1=(-0.0114805029709527, 
+    0.0277163859753386), point2=(0.0114805029709527, 0.0277163859753386))
+mdb.models['Mesh_96'].sketches['__profile__'].Line(point1=(0.0114805029709527, 
+    0.0277163859753386), point2=(0.0277163859753386, 0.0114805029709527))
+mdb.models['Mesh_96'].sketches['__profile__'].Line(point1=(0.0277163859753386, 
+    0.0114805029709527), point2=(0.0277163859753386, -0.0114805029709527))
+mdb.models['Mesh_96'].sketches['__profile__'].Line(point1=(0.0277163859753386, 
+    -0.0114805029709527), point2=(0.0114805029709527, -0.0277163859753386))
+mdb.models['Mesh_96'].sketches['__profile__'].Line(point1=(0.0114805029709527, 
+    -0.0277163859753386), point2=(-0.0114805029709527, -0.0277163859753386))
+mdb.models['Mesh_96'].sketches['__profile__'].Line(point1=(-0.0114805029709527, 
+    -0.0277163859753386), point2=(-0.0277163859753386, -0.0114805029709527))
+mdb.models['Mesh_96'].sketches['__profile__'].Line(point1=(-0.0277163859753386, 
+    -0.0114805029709527), point2=(-0.0277163859753386, 0.0114805029709527))
+mdb.models['Mesh_96'].sketches['__profile__'].Line(point1=(-0.0277163859753386, 
+    0.0114805029709527), point2=(-0.0114805029709527, 0.0277163859753386))
+mdb.models['Mesh_96'].Part(dimensionality=THREE_D, name='Hub', type=
+    DEFORMABLE_BODY)
+mdb.models['Mesh_96'].parts['Hub'].BaseSolidExtrude(depth=0.09, sketch=
+    mdb.models['Mesh_96'].sketches['__profile__'])
+del mdb.models['Mesh_96'].sketches['__profile__']
+mdb.models['Mesh_96'].ConstrainedSketch(name='__profile__', sheetSize=10.0)
+mdb.models['Mesh_96'].sketches['__profile__'].Line(point1=(-0.0114805029709527, 
+    0.0277163859753386), point2=(-1.78359533451059, 0.0277163859753386))
+mdb.models['Mesh_96'].Part(dimensionality=THREE_D, name='SMAWire', type=
+    DEFORMABLE_BODY)
+mdb.models['Mesh_96'].parts['SMAWire'].BaseWire(sketch=
+    mdb.models['Mesh_96'].sketches['__profile__'])
+del mdb.models['Mesh_96'].sketches['__profile__']
+mdb.models['Mesh_96'].Material(name='Nitinol')
+mdb.models['Mesh_96'].materials['Nitinol'].Density(table=((6450.0, ), ))
+mdb.models['Mesh_96'].materials['Nitinol'].Elastic(table=((35000000000.0, 0.3), 
+    ))
+mdb.models['Mesh_96'].Material(name='Aluminum')
+mdb.models['Mesh_96'].materials['Aluminum'].Density(table=((2700.0, ), ))
+mdb.models['Mesh_96'].materials['Aluminum'].Elastic(table=((69000000000.0, 
+    0.33), ))
+mdb.models['Mesh_96'].CircularProfile(name='WireProfile', r=0.00075)
+mdb.models['Mesh_96'].BeamSection(beamSectionOffset=(0.0, 0.0), 
+    consistentMassMatrix=False, integration=DURING_ANALYSIS, material='Nitinol'
+    , name='WireSection', poissonRatio=0.0, profile='WireProfile', 
+    temperatureVar=LINEAR)
+mdb.models['Mesh_96'].HomogeneousSolidSection(material='Aluminum', name=
+    'HubSection', thickness=None)
+mdb.models['Mesh_96'].parts['Hub'].Set(cells=
+    mdb.models['Mesh_96'].parts['Hub'].cells, name='HubSet')
+mdb.models['Mesh_96'].parts['Hub'].SectionAssignment(offset=0.0, offsetField=''
+    , offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Mesh_96'].parts['Hub'].sets['HubSet'], sectionName='HubSection'
+    , thicknessAssignment=FROM_SECTION)
+mdb.models['Mesh_96'].parts['SMAWire'].Set(edges=
+    mdb.models['Mesh_96'].parts['SMAWire'].edges.findAt(((-0.897537918740769, 
+    0.0277163859753386, 0.0), )), name='WireSet')
+mdb.models['Mesh_96'].parts['SMAWire'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Mesh_96'].parts['SMAWire'].sets['WireSet'], sectionName=
+    'WireSection', thicknessAssignment=FROM_SECTION)
+mdb.models['Mesh_96'].parts['SMAWire'].assignBeamSectionOrientation(method=
+    N1_COSINES, n1=(0.0, 0.0, 1.0), region=
+    mdb.models['Mesh_96'].parts['SMAWire'].sets['WireSet'])
+mdb.models['Mesh_96'].parts['SMAWire'].Set(name='WireFixed', vertices=
+    mdb.models['Mesh_96'].parts['SMAWire'].vertices.findAt(((-0.011481, 
+    0.027716, 0.0), ), ))
+mdb.models['Mesh_96'].parts['Hub'].seedPart(deviationFactor=0.1, minSizeFactor=
+    0.1, size=0.02)
+mdb.models['Mesh_96'].parts['Hub'].setMeshControls(elemShape=TET, regions=
+    mdb.models['Mesh_96'].parts['Hub'].cells, technique=FREE)
+mdb.models['Mesh_96'].parts['Hub'].setElementType(elemTypes=(ElemType(
+    elemCode=C3D10, elemLibrary=STANDARD), ElemType(elemCode=C3D6, 
+    elemLibrary=STANDARD), ElemType(elemCode=C3D4, elemLibrary=STANDARD)), 
+    regions=(mdb.models['Mesh_96'].parts['Hub'].cells, ))
+mdb.models['Mesh_96'].parts['Hub'].generateMesh()
+mdb.models['Mesh_96'].parts['SMAWire'].seedEdgeByNumber(constraint=FIXED, 
+    edges=mdb.models['Mesh_96'].parts['SMAWire'].edges, number=96)
+mdb.models['Mesh_96'].parts['SMAWire'].setElementType(elemTypes=(ElemType(
+    elemCode=B31H, elemLibrary=STANDARD), ), regions=(
+    mdb.models['Mesh_96'].parts['SMAWire'].edges, ))
+mdb.models['Mesh_96'].parts['SMAWire'].generateMesh()
+mdb.models['Mesh_96'].rootAssembly.DatumCsysByDefault(CARTESIAN)
+mdb.models['Mesh_96'].rootAssembly.Instance(dependent=ON, name='Hub-1', part=
+    mdb.models['Mesh_96'].parts['Hub'])
+mdb.models['Mesh_96'].rootAssembly.Instance(dependent=ON, name='SMAWire-1', 
+    part=mdb.models['Mesh_96'].parts['SMAWire'])
+mdb.models['Mesh_96'].StaticStep(description='Static drag load on wire', 
     initialInc=0.001, maxInc=0.05, maxNumInc=1000, minInc=1e-08, name=
-    'Step-275', nlgeom=ON, previous='Step-300')
-mdb.models['Model-1'].steps['Step-275'].Restart(frequency=1, numberIntervals=0, 
-    overlay=ON)
-mdb.models['Model-1'].loads['DragLoad'].setValuesInStep(comp3=
-    -0.00184178360016216, stepName='Step-275')
-mdb.Job(atTime=None, contactPrint=OFF, description='restart d=3 alt=275', 
+    'DragStep', nlgeom=ON, previous='Initial')
+mdb.models['Mesh_96'].EncastreBC(createStepName='DragStep', name='WireFixed', 
+    region=
+    mdb.models['Mesh_96'].rootAssembly.instances['SMAWire-1'].sets['WireFixed'])
+mdb.models['Mesh_96'].ExpressionField(description=
+    'Arc length s along wire from hub attachment point', expression=
+    '(-0.01148050 + X * -1.00000000 + Y * 0.00000000)', localCsys=None, name=
+    'DragField')
+mdb.models['Mesh_96'].rootAssembly.Set(edges=
+    mdb.models['Mesh_96'].rootAssembly.instances['SMAWire-1'].edges.findAt(((
+    -0.454509, 0.027716, 0.0), ), ), name='WireEdges')
+mdb.models['Mesh_96'].LineLoad(comp3=-0.00648033497199178, createStepName=
+    'DragStep', distributionType=FIELD, field='DragField', name='DragLoad', 
+    region=mdb.models['Mesh_96'].rootAssembly.sets['WireEdges'])
+mdb.Job(atTime=None, contactPrint=OFF, description='Mesh convergence n=96', 
     echoPrint=OFF, explicitPrecision=SINGLE, getMemoryFromAnalysis=True, 
-    historyPrint=OFF, memory=90, memoryUnits=PERCENTAGE, model='Model-1', 
-    modelPrint=OFF, name='D3_A275', nodalOutputPrecision=SINGLE, numCpus=1, 
-    numGPUs=0, queue=None, resultsFormat=ODB, scratch='', type=RESTART, 
-    userSubroutine='', waitMinutes=0)
-mdb.jobs['D3_A275'].submit(consistencyChecking=OFF)
-mdb.jobs['D3_A275'].waitForCompletion()
-mdb.models['Model-1'].setValues(restartJob='D3_A275', restartStep='Step-275')
-mdb.models['Model-1'].StaticStep(description='Static drag load on wire', 
+    historyPrint=OFF, memory=90, memoryUnits=PERCENTAGE, model='Mesh_96', 
+    modelPrint=OFF, name='MeshConv_d1p5_A200_n96', nodalOutputPrecision=SINGLE, 
+    numCpus=1, numGPUs=0, queue=None, resultsFormat=ODB, scratch='', type=
+    ANALYSIS, userSubroutine='', waitMinutes=0)
+mdb.jobs['MeshConv_d1p5_A200_n96'].submit(consistencyChecking=OFF)
+mdb.jobs['MeshConv_d1p5_A200_n96'].waitForCompletion()
+mdb.Model(name='Mesh_192')
+mdb.models['Mesh_192'].ConstrainedSketch(name='__profile__', sheetSize=1.0)
+mdb.models['Mesh_192'].sketches['__profile__'].Line(point1=(
+    -0.0114805029709527, 0.0277163859753386), point2=(0.0114805029709527, 
+    0.0277163859753386))
+mdb.models['Mesh_192'].sketches['__profile__'].Line(point1=(0.0114805029709527, 
+    0.0277163859753386), point2=(0.0277163859753386, 0.0114805029709527))
+mdb.models['Mesh_192'].sketches['__profile__'].Line(point1=(0.0277163859753386, 
+    0.0114805029709527), point2=(0.0277163859753386, -0.0114805029709527))
+mdb.models['Mesh_192'].sketches['__profile__'].Line(point1=(0.0277163859753386, 
+    -0.0114805029709527), point2=(0.0114805029709527, -0.0277163859753386))
+mdb.models['Mesh_192'].sketches['__profile__'].Line(point1=(0.0114805029709527, 
+    -0.0277163859753386), point2=(-0.0114805029709527, -0.0277163859753386))
+mdb.models['Mesh_192'].sketches['__profile__'].Line(point1=(
+    -0.0114805029709527, -0.0277163859753386), point2=(-0.0277163859753386, 
+    -0.0114805029709527))
+mdb.models['Mesh_192'].sketches['__profile__'].Line(point1=(
+    -0.0277163859753386, -0.0114805029709527), point2=(-0.0277163859753386, 
+    0.0114805029709527))
+mdb.models['Mesh_192'].sketches['__profile__'].Line(point1=(
+    -0.0277163859753386, 0.0114805029709527), point2=(-0.0114805029709527, 
+    0.0277163859753386))
+mdb.models['Mesh_192'].Part(dimensionality=THREE_D, name='Hub', type=
+    DEFORMABLE_BODY)
+mdb.models['Mesh_192'].parts['Hub'].BaseSolidExtrude(depth=0.09, sketch=
+    mdb.models['Mesh_192'].sketches['__profile__'])
+del mdb.models['Mesh_192'].sketches['__profile__']
+mdb.models['Mesh_192'].ConstrainedSketch(name='__profile__', sheetSize=10.0)
+mdb.models['Mesh_192'].sketches['__profile__'].Line(point1=(
+    -0.0114805029709527, 0.0277163859753386), point2=(-1.78359533451059, 
+    0.0277163859753386))
+mdb.models['Mesh_192'].Part(dimensionality=THREE_D, name='SMAWire', type=
+    DEFORMABLE_BODY)
+mdb.models['Mesh_192'].parts['SMAWire'].BaseWire(sketch=
+    mdb.models['Mesh_192'].sketches['__profile__'])
+del mdb.models['Mesh_192'].sketches['__profile__']
+mdb.models['Mesh_192'].Material(name='Nitinol')
+mdb.models['Mesh_192'].materials['Nitinol'].Density(table=((6450.0, ), ))
+mdb.models['Mesh_192'].materials['Nitinol'].Elastic(table=((35000000000.0, 
+    0.3), ))
+mdb.models['Mesh_192'].Material(name='Aluminum')
+mdb.models['Mesh_192'].materials['Aluminum'].Density(table=((2700.0, ), ))
+mdb.models['Mesh_192'].materials['Aluminum'].Elastic(table=((69000000000.0, 
+    0.33), ))
+mdb.models['Mesh_192'].CircularProfile(name='WireProfile', r=0.00075)
+mdb.models['Mesh_192'].BeamSection(beamSectionOffset=(0.0, 0.0), 
+    consistentMassMatrix=False, integration=DURING_ANALYSIS, material='Nitinol'
+    , name='WireSection', poissonRatio=0.0, profile='WireProfile', 
+    temperatureVar=LINEAR)
+mdb.models['Mesh_192'].HomogeneousSolidSection(material='Aluminum', name=
+    'HubSection', thickness=None)
+mdb.models['Mesh_192'].parts['Hub'].Set(cells=
+    mdb.models['Mesh_192'].parts['Hub'].cells, name='HubSet')
+mdb.models['Mesh_192'].parts['Hub'].SectionAssignment(offset=0.0, offsetField=
+    '', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Mesh_192'].parts['Hub'].sets['HubSet'], sectionName=
+    'HubSection', thicknessAssignment=FROM_SECTION)
+mdb.models['Mesh_192'].parts['SMAWire'].Set(edges=
+    mdb.models['Mesh_192'].parts['SMAWire'].edges.findAt(((-0.897537918740769, 
+    0.0277163859753386, 0.0), )), name='WireSet')
+mdb.models['Mesh_192'].parts['SMAWire'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Mesh_192'].parts['SMAWire'].sets['WireSet'], sectionName=
+    'WireSection', thicknessAssignment=FROM_SECTION)
+mdb.models['Mesh_192'].parts['SMAWire'].assignBeamSectionOrientation(method=
+    N1_COSINES, n1=(0.0, 0.0, 1.0), region=
+    mdb.models['Mesh_192'].parts['SMAWire'].sets['WireSet'])
+mdb.models['Mesh_192'].parts['SMAWire'].Set(name='WireFixed', vertices=
+    mdb.models['Mesh_192'].parts['SMAWire'].vertices.findAt(((-0.011481, 
+    0.027716, 0.0), ), ))
+mdb.models['Mesh_192'].parts['Hub'].seedPart(deviationFactor=0.1, 
+    minSizeFactor=0.1, size=0.02)
+mdb.models['Mesh_192'].parts['Hub'].setMeshControls(elemShape=TET, regions=
+    mdb.models['Mesh_192'].parts['Hub'].cells, technique=FREE)
+mdb.models['Mesh_192'].parts['Hub'].setElementType(elemTypes=(ElemType(
+    elemCode=C3D10, elemLibrary=STANDARD), ElemType(elemCode=C3D6, 
+    elemLibrary=STANDARD), ElemType(elemCode=C3D4, elemLibrary=STANDARD)), 
+    regions=(mdb.models['Mesh_192'].parts['Hub'].cells, ))
+mdb.models['Mesh_192'].parts['Hub'].generateMesh()
+mdb.models['Mesh_192'].parts['SMAWire'].seedEdgeByNumber(constraint=FIXED, 
+    edges=mdb.models['Mesh_192'].parts['SMAWire'].edges, number=192)
+mdb.models['Mesh_192'].parts['SMAWire'].setElementType(elemTypes=(ElemType(
+    elemCode=B31H, elemLibrary=STANDARD), ), regions=(
+    mdb.models['Mesh_192'].parts['SMAWire'].edges, ))
+mdb.models['Mesh_192'].parts['SMAWire'].generateMesh()
+mdb.models['Mesh_192'].rootAssembly.DatumCsysByDefault(CARTESIAN)
+mdb.models['Mesh_192'].rootAssembly.Instance(dependent=ON, name='Hub-1', part=
+    mdb.models['Mesh_192'].parts['Hub'])
+mdb.models['Mesh_192'].rootAssembly.Instance(dependent=ON, name='SMAWire-1', 
+    part=mdb.models['Mesh_192'].parts['SMAWire'])
+mdb.models['Mesh_192'].StaticStep(description='Static drag load on wire', 
     initialInc=0.001, maxInc=0.05, maxNumInc=1000, minInc=1e-08, name=
-    'Step-250', nlgeom=ON, previous='Step-275')
-mdb.models['Model-1'].steps['Step-250'].Restart(frequency=1, numberIntervals=0, 
-    overlay=ON)
-mdb.models['Model-1'].loads['DragLoad'].setValuesInStep(comp3=
-    -0.00358961579386991, stepName='Step-250')
-mdb.Job(atTime=None, contactPrint=OFF, description='restart d=3 alt=250', 
+    'DragStep', nlgeom=ON, previous='Initial')
+mdb.models['Mesh_192'].EncastreBC(createStepName='DragStep', name='WireFixed', 
+    region=
+    mdb.models['Mesh_192'].rootAssembly.instances['SMAWire-1'].sets['WireFixed'])
+mdb.models['Mesh_192'].ExpressionField(description=
+    'Arc length s along wire from hub attachment point', expression=
+    '(-0.01148050 + X * -1.00000000 + Y * 0.00000000)', localCsys=None, name=
+    'DragField')
+mdb.models['Mesh_192'].rootAssembly.Set(edges=
+    mdb.models['Mesh_192'].rootAssembly.instances['SMAWire-1'].edges.findAt(((
+    -0.454509, 0.027716, 0.0), ), ), name='WireEdges')
+mdb.models['Mesh_192'].LineLoad(comp3=-0.00648033497199178, createStepName=
+    'DragStep', distributionType=FIELD, field='DragField', name='DragLoad', 
+    region=mdb.models['Mesh_192'].rootAssembly.sets['WireEdges'])
+mdb.Job(atTime=None, contactPrint=OFF, description='Mesh convergence n=192', 
     echoPrint=OFF, explicitPrecision=SINGLE, getMemoryFromAnalysis=True, 
-    historyPrint=OFF, memory=90, memoryUnits=PERCENTAGE, model='Model-1', 
-    modelPrint=OFF, name='D3_A250', nodalOutputPrecision=SINGLE, numCpus=1, 
-    numGPUs=0, queue=None, resultsFormat=ODB, scratch='', type=RESTART, 
-    userSubroutine='', waitMinutes=0)
-mdb.jobs['D3_A250'].submit(consistencyChecking=OFF)
-mdb.jobs['D3_A250'].waitForCompletion()
-mdb.models['Model-1'].setValues(restartJob='D3_A250', restartStep='Step-250')
-mdb.models['Model-1'].StaticStep(description='Static drag load on wire', 
-    initialInc=0.001, maxInc=0.05, maxNumInc=1000, minInc=1e-08, name=
-    'Step-225', nlgeom=ON, previous='Step-250')
-mdb.models['Model-1'].steps['Step-225'].Restart(frequency=1, numberIntervals=0, 
-    overlay=ON)
-mdb.models['Model-1'].loads['DragLoad'].setValuesInStep(comp3=
-    -0.00672422663022708, stepName='Step-225')
-mdb.Job(atTime=None, contactPrint=OFF, description='restart d=3 alt=225', 
-    echoPrint=OFF, explicitPrecision=SINGLE, getMemoryFromAnalysis=True, 
-    historyPrint=OFF, memory=90, memoryUnits=PERCENTAGE, model='Model-1', 
-    modelPrint=OFF, name='D3_A225', nodalOutputPrecision=SINGLE, numCpus=1, 
-    numGPUs=0, queue=None, resultsFormat=ODB, scratch='', type=RESTART, 
-    userSubroutine='', waitMinutes=0)
-mdb.jobs['D3_A225'].submit(consistencyChecking=OFF)
-mdb.jobs['D3_A225'].waitForCompletion()
-mdb.models['Model-1'].setValues(restartJob='D3_A225', restartStep='Step-225')
-mdb.models['Model-1'].StaticStep(description='Static drag load on wire', 
-    initialInc=0.001, maxInc=0.05, maxNumInc=1000, minInc=1e-08, name=
-    'Step-200', nlgeom=ON, previous='Step-225')
-mdb.models['Model-1'].steps['Step-200'].Restart(frequency=1, numberIntervals=0, 
-    overlay=ON)
-mdb.models['Model-1'].loads['DragLoad'].setValuesInStep(comp3=
-    -0.0134723522098937, stepName='Step-200')
-mdb.Job(atTime=None, contactPrint=OFF, description='restart d=3 alt=200', 
-    echoPrint=OFF, explicitPrecision=SINGLE, getMemoryFromAnalysis=True, 
-    historyPrint=OFF, memory=90, memoryUnits=PERCENTAGE, model='Model-1', 
-    modelPrint=OFF, name='D3_A200', nodalOutputPrecision=SINGLE, numCpus=1, 
-    numGPUs=0, queue=None, resultsFormat=ODB, scratch='', type=RESTART, 
-    userSubroutine='', waitMinutes=0)
-mdb.jobs['D3_A200'].submit(consistencyChecking=OFF)
-mdb.jobs['D3_A200'].waitForCompletion()
+    historyPrint=OFF, memory=90, memoryUnits=PERCENTAGE, model='Mesh_192', 
+    modelPrint=OFF, name='MeshConv_d1p5_A200_n192', nodalOutputPrecision=SINGLE
+    , numCpus=1, numGPUs=0, queue=None, resultsFormat=ODB, scratch='', type=
+    ANALYSIS, userSubroutine='', waitMinutes=0)
+mdb.jobs['MeshConv_d1p5_A200_n192'].submit(consistencyChecking=OFF)
+mdb.jobs['MeshConv_d1p5_A200_n192'].waitForCompletion()

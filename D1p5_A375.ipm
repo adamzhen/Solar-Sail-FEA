@@ -2,7 +2,7 @@
 <Heading><heading type="string">restart d=1.5 alt=375</heading><phase type="symconst">BATCHPRE_PHASE</phase><jobName type="string">D1p5_A375</jobName></Heading>
 <Odb_File><file type="string">C:\Users\adzheng\Solar-Sail-FEA\D1p5_A375.odb</file><phase type="symconst">BATCHPRE_PHASE</phase><jobName type="string">D1p5_A375</jobName></Odb_File>
 <Completed><message type="string">Analysis phase complete</message><phase type="symconst">BATCHPRE_PHASE</phase><jobName type="string">D1p5_A375</jobName></Completed>
-<Started><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">D1p5_A375</jobName><clientHost type="string">AERO-MJ0JAKC7</clientHost><handle type="integer">50520</handle></Started>
+<Started><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">D1p5_A375</jobName><clientHost type="string">AERO-MJ0JAKC7</clientHost><handle type="integer">29328</handle></Started>
 <Step><stepId type="integer">2</stepId><stepName type="string">Static drag load on wire</stepName><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">D1p5_A375</jobName></Step>
 <Odb_Frame><step type="integer">1</step><frame type="integer">0</frame><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">D1p5_A375</jobName></Odb_Frame>
 <Warning><message type="string">THERE ARE 2 UNCONNECTED REGIONS IN THE MODEL.</message><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">D1p5_A375</jobName></Warning>
@@ -249,4 +249,4 @@
 <Status><step type="integer">2</step><increment type="integer">29</increment><attempts type="integer">1</attempts><severe type="integer">0</severe><equilibrium type="integer">1</equilibrium><iterations type="integer">1</iterations><totalTime type="float">2</totalTime><stepTime type="float">1</stepTime><timeIncrement type="float">0.0356699218749996</timeIncrement><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">D1p5_A375</jobName></Status>
 <End_Step><stepId type="integer">2</stepId><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">D1p5_A375</jobName></End_Step>
 <Completed><message type="string">Analysis phase complete</message><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">D1p5_A375</jobName></Completed>
-<JOB_COMPLETED><time type="string">Sat Oct 17 15:45:23 2026</time><jobName type="string">D1p5_A375</jobName></JOB_COMPLETED></msgwrapper>
+<JOB_COMPLETED><time type="string">Tue Oct 20 22:13:32 2026</time><jobName type="string">D1p5_A375</jobName></JOB_COMPLETED></msgwrapper>

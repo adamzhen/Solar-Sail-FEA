@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2025                                  Date 17-Oct-2026   Time 15:55:13
+   Abaqus 2025                                  Date 20-Oct-2026   Time 22:24:27
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
  restart d=3 alt=225                                                             
@@ -620,7 +620,7 @@
         NUMBER OF EQUATIONS:  375
         NUMBER OF RHS:        1
         NUMBER OF FLOPS:      3.631e+05
-        SOLVER ELAPSED TIME:  2ms
+        SOLVER ELAPSED TIME:  3ms
  
 
  ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
@@ -839,7 +839,7 @@
         NUMBER OF EQUATIONS:  375
         NUMBER OF RHS:        1
         NUMBER OF FLOPS:      3.631e+05
-        SOLVER ELAPSED TIME:  2ms
+        SOLVER ELAPSED TIME:  3ms
  
 
  ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
@@ -1129,7 +1129,7 @@
         NUMBER OF EQUATIONS:  375
         NUMBER OF RHS:        1
         NUMBER OF FLOPS:      3.631e+05
-        SOLVER ELAPSED TIME:  3ms
+        SOLVER ELAPSED TIME:  2ms
  
 
  ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
@@ -1345,7 +1345,7 @@
         NUMBER OF EQUATIONS:  375
         NUMBER OF RHS:        1
         NUMBER OF FLOPS:      3.631e+05
-        SOLVER ELAPSED TIME:  3ms
+        SOLVER ELAPSED TIME:  2ms
  
 
  ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
@@ -1489,7 +1489,7 @@
         NUMBER OF EQUATIONS:  375
         NUMBER OF RHS:        1
         NUMBER OF FLOPS:      3.631e+05
-        SOLVER ELAPSED TIME:  2ms
+        SOLVER ELAPSED TIME:  3ms
  
 
  ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
@@ -1561,7 +1561,7 @@
         NUMBER OF EQUATIONS:  375
         NUMBER OF RHS:        1
         NUMBER OF FLOPS:      3.631e+05
-        SOLVER ELAPSED TIME:  3ms
+        SOLVER ELAPSED TIME:  2ms
  
 
  ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
@@ -1777,7 +1777,7 @@
         NUMBER OF EQUATIONS:  375
         NUMBER OF RHS:        1
         NUMBER OF FLOPS:      3.631e+05
-        SOLVER ELAPSED TIME:  2ms
+        SOLVER ELAPSED TIME:  3ms
  
 
  ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
@@ -2137,7 +2137,7 @@
         NUMBER OF EQUATIONS:  375
         NUMBER OF RHS:        1
         NUMBER OF FLOPS:      3.631e+05
-        SOLVER ELAPSED TIME:  3ms
+        SOLVER ELAPSED TIME:  2ms
  
 
  ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
@@ -2297,8 +2297,8 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =     0.70    
-       SYSTEM TIME (SEC)    =     0.10    
+       USER TIME (SEC)      =     0.60    
+       SYSTEM TIME (SEC)    =     0.20    
        TOTAL CPU TIME (SEC) =     0.80    
        WALLCLOCK TIME (SEC) =            1
        MEMORY PEAK (GB)     =            0

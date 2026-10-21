@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2025                                  Date 17-Oct-2026   Time 15:49:26
+   Abaqus 2025                                  Date 20-Oct-2026   Time 22:17:57
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
 
@@ -78,7 +78,7 @@
 
 
 
-          READING RESTART DATA GENERATED ON RELEASE  6.25-1       DATE  17-Oct-2026     TIME  15:49:08
+          READING RESTART DATA GENERATED ON RELEASE  6.25-1       DATE  20-Oct-2026     TIME  22:17:39
   *heading
           restart d=2 alt=250                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
 
@@ -113,10 +113,10 @@
        USER TIME (SEC)      =     0.20    
        SYSTEM TIME (SEC)    =     0.10    
        TOTAL CPU TIME (SEC) =     0.30    
-       WALLCLOCK TIME (SEC) =            0
+       WALLCLOCK TIME (SEC) =            1
 1
 
-   Abaqus 2025                                  Date 17-Oct-2026   Time 15:49:30
+   Abaqus 2025                                  Date 20-Oct-2026   Time 22:18:01
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
      restart d=2 alt=250                                                                       STEP    7  INCREMENT    1
@@ -188,7 +188,7 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =     0.50    
-       SYSTEM TIME (SEC)    =     0.10    
-       TOTAL CPU TIME (SEC) =     0.60    
-       WALLCLOCK TIME (SEC) =            0
+       USER TIME (SEC)      =     0.60    
+       SYSTEM TIME (SEC)    =     0.20    
+       TOTAL CPU TIME (SEC) =     0.80    
+       WALLCLOCK TIME (SEC) =            1

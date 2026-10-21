@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2025                                  Date 17-Oct-2026   Time 15:51:33
+   Abaqus 2025                                  Date 20-Oct-2026   Time 22:20:29
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
 
@@ -78,7 +78,7 @@
 
 
 
-          READING RESTART DATA GENERATED ON RELEASE  6.25-1       DATE  17-Oct-2026     TIME  15:51:14
+          READING RESTART DATA GENERATED ON RELEASE  6.25-1       DATE  20-Oct-2026     TIME  22:20:12
   *heading
           restart d=2.5 alt=300                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
 
@@ -110,13 +110,13 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =     0.10    
+       USER TIME (SEC)      =     0.20    
        SYSTEM TIME (SEC)    =     0.10    
-       TOTAL CPU TIME (SEC) =     0.20    
+       TOTAL CPU TIME (SEC) =     0.30    
        WALLCLOCK TIME (SEC) =            0
 1
 
-   Abaqus 2025                                  Date 17-Oct-2026   Time 15:51:36
+   Abaqus 2025                                  Date 20-Oct-2026   Time 22:20:33
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
      restart d=2.5 alt=300                                                                     STEP    5  INCREMENT    1
@@ -188,7 +188,7 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =     0.60    
+       USER TIME (SEC)      =     0.70    
        SYSTEM TIME (SEC)    =     0.20    
-       TOTAL CPU TIME (SEC) =     0.80    
-       WALLCLOCK TIME (SEC) =            1
+       TOTAL CPU TIME (SEC) =     0.90    
+       WALLCLOCK TIME (SEC) =            0

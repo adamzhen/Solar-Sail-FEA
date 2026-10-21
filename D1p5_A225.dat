@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2025                                  Date 17-Oct-2026   Time 15:47:01
+   Abaqus 2025                                  Date 20-Oct-2026   Time 22:15:00
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
 
@@ -78,7 +78,7 @@
 
 
 
-          READING RESTART DATA GENERATED ON RELEASE  6.25-1       DATE  17-Oct-2026     TIME  15:46:43
+          READING RESTART DATA GENERATED ON RELEASE  6.25-1       DATE  20-Oct-2026     TIME  22:14:44
   *heading
           restart d=1.5 alt=225                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
 
@@ -113,10 +113,10 @@
        USER TIME (SEC)      =     0.20    
        SYSTEM TIME (SEC)    =     0.10    
        TOTAL CPU TIME (SEC) =     0.30    
-       WALLCLOCK TIME (SEC) =            1
+       WALLCLOCK TIME (SEC) =            0
 1
 
-   Abaqus 2025                                  Date 17-Oct-2026   Time 15:47:05
+   Abaqus 2025                                  Date 20-Oct-2026   Time 22:15:04
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
      restart d=1.5 alt=225                                                                     STEP    8  INCREMENT    1
@@ -189,6 +189,6 @@
 
      JOB TIME SUMMARY
        USER TIME (SEC)      =     0.60    
-       SYSTEM TIME (SEC)    =     0.10    
-       TOTAL CPU TIME (SEC) =     0.70    
+       SYSTEM TIME (SEC)    =     0.20    
+       TOTAL CPU TIME (SEC) =     0.80    
        WALLCLOCK TIME (SEC) =            1

@@ -1,0 +1,23 @@
+Analysis initiated from SIMULIA established products
+Abaqus JOB D2p5_A175
+Abaqus 2025
+Abaqus License Manager checked out the following licenses:
+Abaqus/Standard checked out 5 tokens from Flexnet server hprc-license.tamu.edu.
+<210 out of 443 licenses remain available>.
+Abaqus Warning: Your Abaqus license will expire in 10 days.
+Begin Analysis Input File Processor
+10/20/2026 10:21:46 PM
+Run pre.exe
+10/20/2026 10:21:50 PM
+End Analysis Input File Processor
+Begin Abaqus/Standard Analysis
+10/20/2026 10:21:50 PM
+Run standard.exe
+10/20/2026 10:21:57 PM
+End Abaqus/Standard Analysis
+Begin SIM Wrap-up
+10/20/2026 10:21:59 PM
+Run SMASimUtility.exe
+10/20/2026 10:21:59 PM
+End SIM Wrap-up
+Abaqus JOB D2p5_A175 COMPLETED

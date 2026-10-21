@@ -44,7 +44,7 @@ if 'Viewport: 1' in session.viewports.keys():
 
 _total_start = time.perf_counter()
 
-STUDY_NO = 2.0
+STUDY_NO = 2.1
 
 # =====================================================================
 # FIXED PARAMETERS
@@ -54,7 +54,7 @@ A_sail    = 9.0        # sail area, m^2
 R_hub     = 0.03       # hub circumradius, m
 H_hub     = 0.09       # hub extrusion height, m
 mesh_hub  = 0.02       # hub mesh seed size, m
-mesh_wire = 0.1        # wire mesh seed size, m
+mesh_wire = 0.03        # wire mesh seed size, m
 
 # Atmosphere / drag
 Cd        = 2.2
@@ -67,6 +67,8 @@ R_earth   = 6371.0e3         # m
 # 300-400 km: densities implied by the previous pressure table
 #             (p = 0.5*Cd*rho*v_orbit^2 with Cd=2.2, circular orbit).
 density_dict = {
+    150: 1.902e-09,
+    175: 6.466e-10,
     200: 2.840e-10,
     225: 1.415e-10,
     250: 7.570e-11,
@@ -93,7 +95,7 @@ rho_alum    = 2700.0
 # STUDY FACTORS
 # =====================================================================
 d_wire_list   = [1.5, 2, 2.5, 3]                               # mm
-altitude_list = [200, 225, 250, 275, 300, 325, 350, 375, 400]  # km
+altitude_list = [150, 175, 200, 225, 250, 275, 300, 325, 350, 375, 400]  # km
 alt_sequence  = sorted(altitude_list, reverse=True)            # 400 -> 200
 
 n_runs = len(d_wire_list) * len(alt_sequence)
@@ -393,13 +395,18 @@ def extract_results(job_name, step_name):
     max_strain = max(abs(v.data[0]) for v in e_field.values)
 
     pts = []
+    prof = [] # profile for plotting (arc length, deformed X, deformed Z)
     for v in u_wire:
         c = coords[v.nodeLabel]
         pts.append((wx - c[0],
                     math.hypot(c[0], c[1]),
                     math.hypot(c[0] + v.data[0], c[1] + v.data[1]),
                     v.data[2]))
+        prof.append((wx - c[0],              # arc length from root (for ordering)
+                             c[0] + v.data[0],       # deformed X
+                             c[2] + v.data[2]))      # deformed Z
     pts.sort(key=lambda t: t[0])
+    prof.sort(key=lambda t: t[0])
     odb.close()
 
     area = drag_area([t[1] for t in pts],
@@ -408,6 +415,8 @@ def extract_results(job_name, step_name):
     out = dict(max_disp=max_disp, U1=U1, U2=U2, U3=U3,
                max_stress=max_stress, max_strain=max_strain)
     out.update(area)
+    out['profile_x'] = [t[1] for t in prof]
+    out['profile_z'] = [t[2] for t in prof]
     return out
 
 
@@ -474,6 +483,37 @@ def plot_outlines(d_mm, records):
     ax.legend(loc='upper right', fontsize=8)
     fig.tight_layout()
     fname = 'sail_outline_d{}mm.png'.format(str(d_mm).replace('.', 'p'))
+    fig.savefig(fname, dpi=200, bbox_inches='tight')
+    plt.close(fig)
+    print('Saved: ' + fname)
+
+def plot_wire_profiles(d_mm, records):
+    """Deformed wire in the XZ plane, one line per altitude (true scale)."""
+    alts = [r['altitude'] for r in records]
+    norm = Normalize(vmin=min(alts), vmax=max(alts))
+    cmap = cm.viridis_r
+
+    fig, ax = plt.subplots(figsize=(9, 6))
+    ax.plot([wire_start[0], wire_end[0]], [0.0, 0.0], 'k--', lw=0.6,
+            label='Undeformed')
+    for r in records:
+        ax.plot(r['profile_x'], r['profile_z'], '-', lw=0.9,
+                color=cmap(norm(r['altitude'])))
+
+    sm = cm.ScalarMappable(norm=norm, cmap=cmap)
+    sm.set_array([])
+    cb = fig.colorbar(sm, ax=ax)
+    cb.set_label('Altitude (km)')
+
+    ax.set_aspect('equal', 'datalim')
+    ax.set_xlabel('X (m)   [hub at right, wire tip at left]')
+    ax.set_ylabel('Z (m)   [-Z = drag direction]')
+    ax.set_title('Deformed wire profile, XZ plane (true scale)\n'
+                 'd_wire = {} mm, N = {}'.format(d_mm, N))
+    ax.grid(True, alpha=0.3, lw=0.4)
+    ax.legend(loc='upper right', fontsize=8)
+    fig.tight_layout()
+    fname = 'wire_profile_d{}mm.png'.format(str(d_mm).replace('.', 'p'))
     fig.savefig(fname, dpi=200, bbox_inches='tight')
     plt.close(fig)
     print('Saved: ' + fname)
@@ -575,7 +615,9 @@ for d_mm in d_wire_list:
                 type_str, _run_elapsed])
 
         records.append(dict(altitude=altitude, U1=res['U1'], U2=res['U2'],
-                            U3=res['U3'], delta=res['delta']))
+                            U3=res['U3'], delta=res['delta'],
+                            profile_x=res['profile_x'],
+                            profile_z=res['profile_z']))
 
         print('  F={:.5e} N  max_disp={:.4e} m  tip U=({:.3e}, {:.3e}, {:.3e}) m'.format(
             F_drag, res['max_disp'], res['U1'], res['U2'], res['U3']))
@@ -583,6 +625,7 @@ for d_mm in d_wire_list:
             res['A_proj'], res['A_drag'], res['delta'], _run_elapsed))
 
     plot_outlines(d_mm, records)
+    plot_wire_profiles(d_mm, records)
 
 _total_elapsed = time.perf_counter() - _total_start
 print('\nAll {} runs complete. Total time: {:.1f} s'.format(run_no, _total_elapsed))
